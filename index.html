@@ -1,0 +1,1486 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Dogs Lover - Meet Our Furry Family</title>
+
+    <!-- Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Poppins:wght@400;500;600;700&display=swap"
+      rel="stylesheet"
+    />
+
+    <!-- Font Awesome -->
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
+    />
+
+    <!-- Custom CSS -->
+    <style>
+        /* CSS Variables - Consistent with home and about pages */
+        :root {
+            --primary: #f59e0b;
+            --primary-dark: #b45309;
+            --secondary: #4b5563;
+            --accent: #8b5cf6;
+            --success: #10b981;
+            --warning: #f59e0b;
+            --error: #ef4444;
+            --dark: #1f2937;
+            --light: #f9fafb;
+            --gray-50: #f9fafb;
+            --gray-100: #f3f4f6;
+            --gray-200: #e5e7eb;
+            --gray-300: #d1d5db;
+            --gray-400: #9ca3af;
+            --gray-500: #6b7280;
+            --gray-600: #4b5563;
+            --gray-700: #374151;
+            --gray-800: #1f2937;
+            --gray-900: #111827;
+            
+            --shadow-sm: 0 1px 2px 0 rgb(0 0 0 / 0.05);
+            --shadow: 0 1px 3px 0 rgb(0 0 0 / 0.1), 0 1px 2px -1px rgb(0 0 0 / 0.1);
+            --shadow-md: 0 4px 6px -1px rgb(0 0 0 / 0.1), 0 2px 4px -2px rgb(0 0 0 / 0.1);
+            --shadow-lg: 0 10px 15px -3px rgb(0 0 0 / 0.1), 0 4px 6px -4px rgb(0 0 0 / 0.1);
+            --shadow-xl: 0 20px 25px -5px rgb(0 0 0 / 0.1), 0 8px 10px -6px rgb(0 0 0 / 0.1);
+            
+            --radius-sm: 0.25rem;
+            --radius: 0.375rem;
+            --radius-md: 0.5rem;
+            --radius-lg: 0.75rem;
+            --radius-xl: 1rem;
+            --radius-2xl: 1.5rem;
+            --radius-full: 9999px;
+        }
+
+        /* Reset & Base */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Inter', sans-serif;
+            color: var(--gray-800);
+            line-height: 1.5;
+            background-color: white;
+        }
+
+        h1, h2, h3, h4, h5, h6 {
+            font-family: 'Poppins', sans-serif;
+            font-weight: 600;
+            line-height: 1.2;
+        }
+
+        a {
+            text-decoration: none;
+            color: inherit;
+        }
+
+        ul {
+            list-style: none;
+        }
+
+        img {
+            max-width: 100%;
+            height: auto;
+            display: block;
+        }
+
+        /* Container */
+        .container {
+            max-width: 1280px;
+            margin: 0 auto;
+            padding: 0 1.5rem;
+        }
+
+        @media (min-width: 640px) {
+            .container { padding: 0 2rem; }
+        }
+
+        @media (min-width: 1024px) {
+            .container { padding: 0 2.5rem; }
+        }
+
+        /* Navigation */
+        .navbar {
+            background: white;
+            border-bottom: 1px solid var(--gray-200);
+            position: sticky;
+            top: 0;
+            z-index: 50;
+        }
+
+        .nav-container {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            max-width: 1280px;
+            margin: 0 auto;
+            padding: 1rem 1.5rem;
+        }
+
+        .nav-logo {
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            font-size: 1.25rem;
+            font-weight: 700;
+            color: var(--gray-900);
+        }
+
+        .logo-icon {
+            width: 2.5rem;
+            height: 2.5rem;
+            background: linear-gradient(135deg, var(--primary), var(--primary-dark));
+            border-radius: var(--radius-lg);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-size: 1.25rem;
+        }
+
+        .nav-menu {
+            display: flex;
+            gap: 2rem;
+        }
+
+        .nav-link {
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            padding: 0.5rem 0;
+            color: var(--gray-600);
+            font-weight: 500;
+            transition: color 0.2s;
+            border-bottom: 2px solid transparent;
+        }
+
+        .nav-link i {
+            font-size: 0.875rem;
+        }
+
+        .nav-link:hover,
+        .nav-link.active {
+            color: var(--primary);
+            border-bottom-color: var(--primary);
+        }
+
+        .nav-toggle {
+            display: none;
+            background: none;
+            border: none;
+            font-size: 1.5rem;
+            color: var(--gray-600);
+            cursor: pointer;
+        }
+
+        @media (max-width: 768px) {
+            .nav-menu {
+                display: none;
+                position: absolute;
+                top: 100%;
+                left: 0;
+                right: 0;
+                background: white;
+                padding: 1rem;
+                flex-direction: column;
+                gap: 0.5rem;
+                border-top: 1px solid var(--gray-200);
+                box-shadow: var(--shadow-md);
+            }
+
+            .nav-menu.active {
+                display: flex;
+            }
+
+            .nav-toggle {
+                display: block;
+            }
+        }
+
+        /* Hero Section */
+        .hero {
+            background: linear-gradient(135deg, #fffbeb, #fef3c7);
+            padding: 4rem 0;
+        }
+
+        .hero-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 3rem;
+            align-items: center;
+        }
+
+        .hero-content {
+            max-width: 32rem;
+        }
+
+        .hero-title {
+            font-size: 3rem;
+            font-weight: 700;
+            color: var(--gray-900);
+            margin-bottom: 1.5rem;
+        }
+
+        .hero-title span {
+            color: var(--primary);
+        }
+
+        .hero-description {
+            font-size: 1.125rem;
+            color: var(--gray-600);
+            margin-bottom: 2rem;
+        }
+
+        .hero-buttons {
+            display: flex;
+            gap: 1rem;
+        }
+
+        .hero-image {
+            position: relative;
+        }
+
+        .hero-image img {
+            border-radius: var(--radius-2xl);
+            box-shadow: var(--shadow-xl);
+            width: 100%;
+            height: auto;
+        }
+
+        .hero-stats {
+            display: flex;
+            gap: 2rem;
+            margin-top: 2rem;
+        }
+
+        .stat-item {
+            display: flex;
+            flex-direction: column;
+        }
+
+        .stat-number {
+            font-size: 1.875rem;
+            font-weight: 700;
+            color: var(--gray-900);
+        }
+
+        .stat-label {
+            font-size: 0.875rem;
+            color: var(--gray-500);
+        }
+
+        @media (max-width: 768px) {
+            .hero-grid {
+                grid-template-columns: 1fr;
+                text-align: center;
+            }
+
+            .hero-content {
+                margin: 0 auto;
+            }
+
+            .hero-buttons {
+                justify-content: center;
+            }
+
+            .hero-stats {
+                justify-content: center;
+            }
+        }
+
+        /* Section Styles */
+        .section {
+            padding: 5rem 0;
+        }
+
+        .section-header {
+            text-align: center;
+            max-width: 36rem;
+            margin: 0 auto 3rem;
+        }
+
+        .section-title {
+            font-size: 2rem;
+            color: var(--gray-900);
+            margin-bottom: 1rem;
+        }
+
+        .section-subtitle {
+            font-size: 1.125rem;
+            color: var(--gray-600);
+        }
+
+        /* Dog Cards Grid */
+        .dogs-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 2rem;
+        }
+
+        .dog-card {
+            background: white;
+            border-radius: var(--radius-xl);
+            overflow: hidden;
+            box-shadow: var(--shadow);
+            transition: all 0.3s;
+            border: 1px solid var(--gray-100);
+            cursor: pointer;
+        }
+
+        .dog-card:hover {
+            transform: translateY(-0.25rem);
+            box-shadow: var(--shadow-lg);
+        }
+
+        .dog-image {
+            aspect-ratio: 1;
+            overflow: hidden;
+            position: relative;
+        }
+
+        .dog-image img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.5s;
+        }
+
+        .dog-card:hover .dog-image img {
+            transform: scale(1.1);
+        }
+
+        .dog-image::after {
+            content: '\f00e';
+            font-family: 'Font Awesome 6 Free';
+            font-weight: 900;
+            position: absolute;
+            top: 1rem;
+            right: 1rem;
+            background: rgba(255, 255, 255, 0.9);
+            color: var(--gray-800);
+            width: 2.5rem;
+            height: 2.5rem;
+            border-radius: var(--radius-full);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1rem;
+            opacity: 0;
+            transition: opacity 0.3s;
+            box-shadow: var(--shadow-md);
+        }
+
+        .dog-card:hover .dog-image::after {
+            opacity: 1;
+        }
+
+        .dog-info {
+            padding: 1.5rem;
+        }
+
+        .dog-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 0.5rem;
+        }
+
+        .dog-name {
+            font-size: 1.25rem;
+            font-weight: 600;
+            color: var(--gray-900);
+        }
+
+        .dog-badge {
+            padding: 0.25rem 0.75rem;
+            background: var(--gray-100);
+            border-radius: var(--radius-full);
+            font-size: 0.75rem;
+            color: var(--gray-700);
+        }
+
+        .dog-description {
+            color: var(--gray-600);
+            font-size: 0.875rem;
+            margin-bottom: 1rem;
+        }
+
+        .dog-tags {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0.5rem;
+        }
+
+        .dog-tag {
+            padding: 0.25rem 0.75rem;
+            background: var(--gray-100);
+            border-radius: var(--radius-full);
+            font-size: 0.75rem;
+            color: var(--gray-700);
+        }
+
+        @media (max-width: 1024px) {
+            .dogs-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+        }
+
+        @media (max-width: 640px) {
+            .dogs-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        /* Story Section */
+        .story-section {
+            background: var(--gray-50);
+        }
+
+        .story-content {
+            max-width: 48rem;
+            margin: 0 auto;
+            text-align: center;
+        }
+
+        .story-text {
+            font-size: 1.125rem;
+            color: var(--gray-700);
+            margin-bottom: 2rem;
+        }
+
+        .story-text p + p {
+            margin-top: 1rem;
+        }
+
+        /* Love Section */
+        .love-section {
+            background: white;
+            text-align: center;
+        }
+
+        .love-icon {
+            width: 4rem;
+            height: 4rem;
+            background: #fee2e2;
+            border-radius: var(--radius-full);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 0 auto 1.5rem;
+            color: #dc2626;
+            font-size: 1.5rem;
+        }
+
+        .love-text {
+            max-width: 36rem;
+            margin: 0 auto 1rem;
+            color: var(--gray-700);
+            font-size: 1.125rem;
+        }
+
+        /* Lightbox Modal */
+        .lightbox-modal {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: rgba(0, 0, 0, 0.95);
+            z-index: 1000;
+            padding: 2rem;
+            cursor: pointer;
+        }
+
+        .lightbox-modal.active {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .lightbox-content {
+            max-width: 90%;
+            max-height: 90vh;
+            position: relative;
+            animation: fadeIn 0.3s ease-out;
+        }
+
+        .lightbox-content img {
+            max-width: 100%;
+            max-height: 80vh;
+            object-fit: contain;
+            border-radius: var(--radius-lg);
+            box-shadow: var(--shadow-xl);
+        }
+
+        .lightbox-caption {
+            position: absolute;
+            bottom: -3rem;
+            left: 0;
+            right: 0;
+            text-align: center;
+            color: white;
+            font-size: 1.125rem;
+            padding: 0.5rem;
+            background: rgba(0, 0, 0, 0.5);
+            border-radius: var(--radius-full);
+            backdrop-filter: blur(4px);
+        }
+
+        .lightbox-caption span {
+            font-weight: 600;
+            color: var(--primary);
+        }
+
+        .lightbox-close {
+            position: absolute;
+            top: 1rem;
+            right: 1rem;
+            color: white;
+            font-size: 2rem;
+            cursor: pointer;
+            transition: transform 0.2s;
+            width: 3rem;
+            height: 3rem;
+            background: rgba(255, 255, 255, 0.1);
+            border-radius: var(--radius-full);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            backdrop-filter: blur(4px);
+            z-index: 1001;
+        }
+
+        .lightbox-close:hover {
+            transform: scale(1.1);
+            background: rgba(255, 255, 255, 0.2);
+        }
+
+        .lightbox-nav {
+            position: absolute;
+            top: 50%;
+            transform: translateY(-50%);
+            width: 100%;
+            display: flex;
+            justify-content: space-between;
+            padding: 0 1rem;
+            left: 0;
+            pointer-events: none;
+        }
+
+        .lightbox-nav-btn {
+            background: rgba(255, 255, 255, 0.1);
+            border: none;
+            color: white;
+            font-size: 1.5rem;
+            width: 3.5rem;
+            height: 3.5rem;
+            border-radius: var(--radius-full);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            cursor: pointer;
+            transition: all 0.2s;
+            backdrop-filter: blur(4px);
+            pointer-events: auto;
+        }
+
+        .lightbox-nav-btn:hover {
+            background: rgba(255, 255, 255, 0.2);
+            transform: scale(1.1);
+        }
+
+        .lightbox-nav-btn i {
+            font-size: 1.25rem;
+        }
+
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+                transform: scale(0.9);
+            }
+            to {
+                opacity: 1;
+                transform: scale(1);
+            }
+        }
+
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(20px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        /* Buttons */
+        .btn {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            gap: 0.5rem;
+            padding: 0.625rem 1.25rem;
+            font-weight: 500;
+            border-radius: var(--radius);
+            transition: all 0.2s;
+            border: 1px solid transparent;
+            cursor: pointer;
+            font-size: 0.875rem;
+        }
+
+        .btn-sm {
+            padding: 0.375rem 0.75rem;
+            font-size: 0.75rem;
+        }
+
+        .btn-lg {
+            padding: 0.75rem 1.5rem;
+            font-size: 1rem;
+        }
+
+        .btn-primary {
+            background: var(--primary);
+            color: white;
+        }
+
+        .btn-primary:hover {
+            background: var(--primary-dark);
+            transform: translateY(-2px);
+            box-shadow: var(--shadow-md);
+        }
+
+        .btn-outline {
+            background: transparent;
+            border-color: var(--gray-300);
+            color: var(--gray-700);
+        }
+
+        .btn-outline:hover {
+            background: white;
+            border-color: var(--gray-400);
+            transform: translateY(-2px);
+            box-shadow: var(--shadow-md);
+        }
+
+        /* Footer */
+        .footer {
+            background: var(--gray-900);
+            color: var(--gray-300);
+            padding: 4rem 0 2rem;
+        }
+
+        .footer-main {
+            display: grid;
+            grid-template-columns: 1.5fr 1fr 1.5fr;
+            gap: 3rem;
+            margin-bottom: 3rem;
+        }
+
+        @media (max-width: 1024px) {
+            .footer-main {
+                grid-template-columns: 1fr;
+                gap: 2rem;
+            }
+        }
+
+        .footer-brand .logo-icon {
+            margin-bottom: 1rem;
+        }
+
+        .footer-brand h3 {
+            font-size: 1.25rem;
+            color: white;
+            margin-bottom: 0.5rem;
+        }
+
+        .brand-description {
+            color: var(--gray-400);
+            margin-bottom: 1.5rem;
+            max-width: 24rem;
+        }
+
+        .footer-links-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 2rem;
+        }
+
+        .footer-column h4 {
+            color: white;
+            font-size: 1rem;
+            margin-bottom: 1.25rem;
+        }
+
+        .footer-links {
+            display: flex;
+            flex-direction: column;
+            gap: 0.75rem;
+        }
+
+        .footer-links a {
+            color: var(--gray-400);
+            transition: color 0.2s;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        .footer-links a:hover {
+            color: white;
+        }
+
+        .footer-links i {
+            font-size: 0.75rem;
+        }
+
+        .newsletter {
+            max-width: 24rem;
+        }
+
+        .newsletter h4 {
+            color: white;
+            font-size: 1rem;
+            margin-bottom: 1rem;
+        }
+
+        .newsletter-form {
+            display: flex;
+            gap: 0.5rem;
+        }
+
+        .newsletter-input {
+            flex: 1;
+            padding: 0.625rem 1rem;
+            background: var(--gray-800);
+            border: 1px solid var(--gray-700);
+            border-radius: var(--radius);
+            color: white;
+            font-size: 0.875rem;
+        }
+
+        .newsletter-input:focus {
+            outline: none;
+            border-color: var(--primary);
+        }
+
+        .newsletter-input::placeholder {
+            color: var(--gray-500);
+        }
+
+        .social-links {
+            display: flex;
+            gap: 1rem;
+        }
+
+        .social-link {
+            width: 2.5rem;
+            height: 2.5rem;
+            background: var(--gray-800);
+            border-radius: var(--radius-full);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: var(--gray-300);
+            transition: all 0.2s;
+        }
+
+        .social-link:hover {
+            background: var(--primary);
+            color: white;
+            transform: translateY(-2px);
+        }
+
+        .footer-bottom {
+            margin-top: 3rem;
+            padding-top: 2rem;
+            border-top: 1px solid var(--gray-800);
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            color: var(--gray-400);
+            font-size: 0.875rem;
+        }
+
+        .footer-bottom-links {
+            display: flex;
+            gap: 1.5rem;
+        }
+
+        .footer-bottom-links a {
+            color: var(--gray-400);
+            transition: color 0.2s;
+        }
+
+        .footer-bottom-links a:hover {
+            color: white;
+        }
+
+        @media (max-width: 768px) {
+            .footer-bottom {
+                flex-direction: column;
+                gap: 1rem;
+                text-align: center;
+            }
+
+            .footer-bottom-links {
+                flex-wrap: wrap;
+                justify-content: center;
+            }
+        }
+
+        /* Utility Classes */
+        .text-center { text-align: center; }
+        .mt-2 { margin-top: 0.5rem; }
+        .mt-4 { margin-top: 1rem; }
+        .mt-8 { margin-top: 2rem; }
+        .mb-4 { margin-bottom: 1rem; }
+        .mb-8 { margin-bottom: 2rem; }
+    </style>
+  </head>
+
+  <body>
+    <!-- Navigation -->
+    <nav class="navbar">
+      <div class="nav-container">
+        <a href="index.html" class="nav-logo">
+          <div class="logo-icon">
+            <i class="fas fa-paw"></i>
+          </div>
+          <span class="logo-text">Dogs Lover</span>
+        </a>
+
+        <button class="nav-toggle" id="navToggle">
+          <i class="fas fa-bars"></i>
+        </button>
+
+        <ul class="nav-menu" id="navMenu">
+          <li>
+            <a href="index.html" class="nav-link active">
+              <i class="fas fa-home"></i> Home
+            </a>
+          </li>
+          <li>
+            <a href="about.html" class="nav-link">
+              <i class="fas fa-heart"></i> About
+            </a>
+          </li>
+          <li>
+            <a href="gallery.html" class="nav-link">
+              <i class="fas fa-camera"></i> Gallery
+            </a>
+          </li>
+          <li>
+            <a href="contact.html" class="nav-link">
+              <i class="fas fa-envelope"></i> Contact
+            </a>
+          </li>
+        </ul>
+      </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section class="hero">
+      <div class="container">
+        <div class="hero-grid">
+          <div class="hero-content">
+            <h1 class="hero-title">Meet Our <span>Furry</span> Family</h1>
+            <p class="hero-description">
+              A home filled with 6 dogs means endless love, daily adventures,
+              and unconditional companionship. Welcome to our world of wagging
+              tails and wet noses.
+            </p>
+            <div class="hero-buttons">
+              <a href="#meet-dogs" class="btn btn-primary btn-lg">
+                <i class="fas fa-paw"></i> Meet the Dogs
+              </a>
+              <a href="#our-story" class="btn btn-outline btn-lg">
+                <i class="fas fa-heart"></i> Our Story
+              </a>
+            </div>
+            <div class="hero-stats">
+              <div class="stat-item">
+                <span class="stat-number">6</span>
+                <span class="stat-label">Happy Dogs</span>
+              </div>
+              <div class="stat-item">
+                <span class="stat-number">∞</span>
+                <span class="stat-label">Unlimited Love</span>
+              </div>
+              <div class="stat-item">
+                <span class="stat-number">24/7</span>
+                <span class="stat-label">Joy</span>
+              </div>
+            </div>
+          </div>
+          <div class="hero-image">
+            <img
+              src="https://images.unsplash.com/photo-1552053831-71594a27632d?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80"
+              alt="Happy Golden Retriever"
+            />
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Our Story Section -->
+    <section id="our-story" class="section story-section">
+      <div class="container">
+        <div class="section-header">
+          <h2 class="section-title">Our Story</h2>
+          <p class="section-subtitle">
+            A journey of love, chaos, and furry companionship
+          </p>
+        </div>
+        <div class="story-content">
+          <div class="story-text">
+            <p>
+              I'm a dog lover—officially less peace in life, but unlimited love
+              ❤️. My 6 dogs aren't just pets; they're my family, bodyguards,
+              therapists, and alarm system—all in one 😄
+            </p>
+            <p>
+              This website is a window into my life with dogs. It's messy,
+              noisy, full of fur… but also full of unconditional love that makes
+              everything worthwhile.
+            </p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Meet the Dogs Section -->
+    <section id="meet-dogs" class="section">
+      <div class="container">
+        <div class="section-header">
+          <h2 class="section-title">Meet My Dogs</h2>
+          <p class="section-subtitle">
+            Six unique personalities, one big happy family
+          </p>
+        </div>
+
+        <div class="dogs-grid" id="dogsGrid">
+          <!-- Dog 1 - Roky -->
+          <div class="dog-card" data-dog="Roky" data-badge="Guardian" data-tags="Protective,Loyal,Calm" data-description="Serious look, soft heart. House protector by duty, cuddle lover by nature.">
+            <div class="dog-image">
+              <img
+                src="https://images.unsplash.com/photo-1543466835-00a7907e9de1?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80"
+                alt="Roky"
+              />
+            </div>
+            <div class="dog-info">
+              <div class="dog-header">
+                <h3 class="dog-name">Roky</h3>
+                <span class="dog-badge">Guardian</span>
+              </div>
+              <p class="dog-description">
+                Serious look, soft heart. House protector by duty, cuddle lover
+                by nature.
+              </p>
+              <div class="dog-tags">
+                <span class="dog-tag">Protective</span>
+                <span class="dog-tag">Loyal</span>
+                <span class="dog-tag">Calm</span>
+              </div>
+            </div>
+          </div>
+
+          <!-- Dog 2 - Simy -->
+          <div class="dog-card" data-dog="Simy" data-badge="Drama Queen" data-tags="Dramatic,Affectionate,Playful" data-description="Drama queen 👑 Gets offended when not getting enough attention!">
+            <div class="dog-image">
+              <img
+                src="https://images.unsplash.com/photo-1537151625747-768eb6cf92b2?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80"
+                alt="Simy"
+              />
+            </div>
+            <div class="dog-info">
+              <div class="dog-header">
+                <h3 class="dog-name">Simy</h3>
+                <span class="dog-badge">Drama Queen</span>
+              </div>
+              <p class="dog-description">
+                Drama queen 👑 Gets offended when not getting enough attention!
+              </p>
+              <div class="dog-tags">
+                <span class="dog-tag">Dramatic</span>
+                <span class="dog-tag">Affectionate</span>
+                <span class="dog-tag">Playful</span>
+              </div>
+            </div>
+          </div>
+
+          <!-- Dog 3 - Mily -->
+          <div class="dog-card" data-dog="Mily" data-badge="Energizer" data-tags="Energetic,Active,Fun-loving" data-description="Non-stop energy ⚡ Runs first, thinks later. Professional zoomie athlete.">
+            <div class="dog-image">
+              <img
+                src="https://images.unsplash.com/photo-1518717758536-85ae29035b6d?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80"
+                alt="Mily"
+              />
+            </div>
+            <div class="dog-info">
+              <div class="dog-header">
+                <h3 class="dog-name">Mily</h3>
+                <span class="dog-badge">Energizer</span>
+              </div>
+              <p class="dog-description">
+                Non-stop energy ⚡ Runs first, thinks later. Professional zoomie
+                athlete.
+              </p>
+              <div class="dog-tags">
+                <span class="dog-tag">Energetic</span>
+                <span class="dog-tag">Active</span>
+                <span class="dog-tag">Fun-loving</span>
+              </div>
+            </div>
+          </div>
+
+          <!-- Dog 4 - Nila -->
+          <div class="dog-card" data-dog="Nila" data-badge="The Philosopher" data-tags="Wise,Calm,Gentle" data-description="Calm soul 💙 Looks at you like she understands the meaning of life.">
+            <div class="dog-image">
+              <img
+                src="https://images.unsplash.com/photo-1588943211346-0908a1fb0b01?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80"
+                alt="Nila"
+              />
+            </div>
+            <div class="dog-info">
+              <div class="dog-header">
+                <h3 class="dog-name">Nila</h3>
+                <span class="dog-badge">The Philosopher</span>
+              </div>
+              <p class="dog-description">
+                Calm soul 💙 Looks at you like she understands the meaning of
+                life.
+              </p>
+              <div class="dog-tags">
+                <span class="dog-tag">Wise</span>
+                <span class="dog-tag">Calm</span>
+                <span class="dog-tag">Gentle</span>
+              </div>
+            </div>
+          </div>
+
+          <!-- Dog 5 - Mila -->
+          <div class="dog-card" data-dog="Mila" data-badge="Explorer" data-tags="Curious,Foodie,Adventurous" data-description="Curious explorer ✨ Everything is interesting, especially food smells.">
+            <div class="dog-image">
+              <img
+                src="https://images.unsplash.com/photo-1548199973-03cce0bbc87b?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80"
+                alt="Mila"
+              />
+            </div>
+            <div class="dog-info">
+              <div class="dog-header">
+                <h3 class="dog-name">Mila</h3>
+                <span class="dog-badge">Explorer</span>
+              </div>
+              <p class="dog-description">
+                Curious explorer ✨ Everything is interesting, especially food
+                smells.
+              </p>
+              <div class="dog-tags">
+                <span class="dog-tag">Curious</span>
+                <span class="dog-tag">Foodie</span>
+                <span class="dog-tag">Adventurous</span>
+              </div>
+            </div>
+          </div>
+
+          <!-- Dog 6 - Laly -->
+          <div class="dog-card" data-dog="Laly" data-badge="Boss" data-tags="Bossy,Cute,Confident" data-description="Small body, big attitude ❤️ Cute face, bossy mind. Runs the household.">
+            <div class="dog-image">
+              <img
+                src="https://images.unsplash.com/photo-1591769225440-811ad7d6eab3?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80"
+                alt="Laly"
+              />
+            </div>
+            <div class="dog-info">
+              <div class="dog-header">
+                <h3 class="dog-name">Laly</h3>
+                <span class="dog-badge">Boss</span>
+              </div>
+              <p class="dog-description">
+                Small body, big attitude ❤️ Cute face, bossy mind. Runs the
+                household.
+              </p>
+              <div class="dog-tags">
+                <span class="dog-tag">Bossy</span>
+                <span class="dog-tag">Cute</span>
+                <span class="dog-tag">Confident</span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Why Love Section -->
+    <section class="section love-section">
+      <div class="container">
+        <div class="love-icon">
+          <i class="fas fa-heart"></i>
+        </div>
+        <h2 class="section-title">Why I Love Them</h2>
+        <div class="love-text">
+          <p>
+            Dogs don't care about money, language, or background. They care
+            about who comes home and who loves them.
+          </p>
+          <p>
+            They can't speak, but their eyes say everything—more than words ever
+            could 🐾❤️
+          </p>
+        </div>
+      </div>
+    </section>
+
+    <!-- Lightbox Modal -->
+    <div class="lightbox-modal" id="lightboxModal">
+        <span class="lightbox-close" id="lightboxClose">
+            <i class="fas fa-times"></i>
+        </span>
+        <div class="lightbox-nav">
+            <button class="lightbox-nav-btn" id="lightboxPrev">
+                <i class="fas fa-chevron-left"></i>
+            </button>
+            <button class="lightbox-nav-btn" id="lightboxNext">
+                <i class="fas fa-chevron-right"></i>
+            </button>
+        </div>
+        <div class="lightbox-content">
+            <img src="" alt="" id="lightboxImage">
+            <div class="lightbox-caption" id="lightboxCaption"></div>
+        </div>
+    </div>
+
+    <!-- Footer -->
+    <footer class="footer">
+      <div class="container">
+        <div class="footer-main">
+          <!-- Brand Column -->
+          <div class="footer-brand">
+            <div class="logo-icon">
+              <i class="fas fa-paw"></i>
+            </div>
+            <h3>Dogs Lover</h3>
+            <p class="brand-description">
+              Creating a world where every dog is loved, every tail wags, and
+              every bark tells a story of happiness.
+            </p>
+            <div class="social-links">
+              <a href="#" class="social-link">
+                <i class="fab fa-instagram"></i>
+              </a>
+              <a href="#" class="social-link">
+                <i class="fab fa-whatsapp"></i>
+              </a>
+              <a href="#" class="social-link">
+                <i class="fab fa-facebook-f"></i>
+              </a>
+              <a href="#" class="social-link">
+                <i class="fab fa-youtube"></i>
+              </a>
+            </div>
+          </div>
+
+          <!-- Links Column -->
+          <div class="footer-links-grid">
+            <div class="footer-column">
+              <h4>Pages</h4>
+              <div class="footer-links">
+                <a href="index.html">
+                  <i class="fas fa-chevron-right"></i> Home
+                </a>
+                <a href="about.html">
+                  <i class="fas fa-chevron-right"></i> About
+                </a>
+                <a href="gallery.html">
+                  <i class="fas fa-chevron-right"></i> Gallery
+                </a>
+                <a href="contact.html">
+                  <i class="fas fa-chevron-right"></i> Contact
+                </a>
+              </div>
+            </div>
+            <div class="footer-column">
+              <h4>Resources</h4>
+              <div class="footer-links">
+                <a href="#blog"> <i class="fas fa-chevron-right"></i> Blog </a>
+                <a href="#stories">
+                  <i class="fas fa-chevron-right"></i> Stories
+                </a>
+                <a href="#tips">
+                  <i class="fas fa-chevron-right"></i> Care Tips
+                </a>
+                <a href="#faq"> <i class="fas fa-chevron-right"></i> FAQ </a>
+              </div>
+            </div>
+          </div>
+
+          <!-- Newsletter Column -->
+          <div class="newsletter">
+            <h4>Stay Updated</h4>
+            <p
+              style="
+                color: var(--gray-400);
+                margin-bottom: 1rem;
+                font-size: 0.875rem;
+              "
+            >
+              Get weekly stories, photos & updates from our furry family.
+            </p>
+            <form class="newsletter-form">
+              <input
+                type="email"
+                class="newsletter-input"
+                placeholder="Your email address"
+                required
+              />
+              <button type="submit" class="btn btn-primary">
+                <i class="fas fa-paper-plane"></i>
+              </button>
+            </form>
+            <div style="margin-top: 1.5rem">
+              <p style="color: var(--gray-500); font-size: 0.75rem">
+                <i class="fas fa-map-marker-alt"></i> Dhaka, Bangladesh
+              </p>
+            </div>
+          </div>
+        </div>
+
+        <!-- Footer Bottom -->
+        <div class="footer-bottom">
+          <div>
+            <p>
+              © <span id="currentYear">2026</span> Dogs Lover. All rights
+              reserved.
+            </p>
+            <p style="margin-top: 0.25rem; color: var(--gray-500)">
+              Made with <i class="fas fa-heart" style="color: #ef4444"></i> in
+              Bangladesh
+            </p>
+          </div>
+          <div class="footer-bottom-links">
+            <a href="#privacy">Privacy Policy</a>
+            <a href="#terms">Terms of Service</a>
+            <a href="#cookies">Cookies</a>
+          </div>
+        </div>
+      </div>
+    </footer>
+
+    <!-- JavaScript -->
+    <script>
+        // Mobile Navigation Toggle
+        const navToggle = document.getElementById('navToggle');
+        const navMenu = document.getElementById('navMenu');
+
+        if (navToggle) {
+            navToggle.addEventListener('click', () => {
+                navMenu.classList.toggle('active');
+                navToggle.classList.toggle('active');
+            });
+        }
+
+        // Set current year in footer
+        const yearElement = document.getElementById('currentYear');
+        if (yearElement) {
+            yearElement.textContent = new Date().getFullYear();
+        }
+
+        // Active navigation highlight
+        const navLinks = document.querySelectorAll('.nav-link');
+        
+        function setActiveLink() {
+            const currentPage = window.location.pathname.split('/').pop() || 'index.html';
+            navLinks.forEach(link => {
+                link.classList.remove('active');
+                if (link.getAttribute('href') === currentPage) {
+                    link.classList.add('active');
+                }
+            });
+        }
+        setActiveLink();
+
+        // Lightbox functionality
+        const lightboxModal = document.getElementById('lightboxModal');
+        const lightboxImage = document.getElementById('lightboxImage');
+        const lightboxCaption = document.getElementById('lightboxCaption');
+        const lightboxClose = document.getElementById('lightboxClose');
+        const lightboxPrev = document.getElementById('lightboxPrev');
+        const lightboxNext = document.getElementById('lightboxNext');
+        
+        // Get all dog cards
+        const dogCards = document.querySelectorAll('.dog-card');
+        let currentImageIndex = 0;
+        let galleryImages = [];
+
+        // Build gallery array from dog cards
+        dogCards.forEach((card, index) => {
+            const img = card.querySelector('.dog-image img');
+            const dogName = card.dataset.dog || card.querySelector('.dog-name')?.textContent || 'Dog';
+            const badge = card.dataset.badge || 'Friend';
+            const description = card.dataset.description || card.querySelector('.dog-description')?.textContent || '';
+            const tags = card.dataset.tags ? card.dataset.tags.split(',') : [];
+            
+            galleryImages.push({
+                src: img.src,
+                alt: img.alt,
+                name: dogName,
+                badge: badge,
+                description: description,
+                tags: tags,
+                element: card
+            });
+
+            // Add click event to open lightbox
+            card.addEventListener('click', function(e) {
+                // Don't open if clicking on links or buttons
+                if (e.target.tagName === 'A' || e.target.tagName === 'BUTTON') {
+                    return;
+                }
+                currentImageIndex = index;
+                openLightbox(index);
+            });
+        });
+
+        function openLightbox(index) {
+            const image = galleryImages[index];
+            lightboxImage.src = image.src;
+            lightboxImage.alt = image.alt;
+            
+            // Create caption with dog info
+            const tagsHtml = image.tags.map(tag => `<span style="background: rgba(255,255,255,0.2); padding: 0.25rem 0.75rem; border-radius: 999px; margin: 0 0.25rem;">${tag}</span>`).join('');
+            
+            lightboxCaption.innerHTML = `
+                <div style="display: flex; flex-direction: column; gap: 0.5rem;">
+                    <div style="display: flex; align-items: center; justify-content: center; gap: 1rem;">
+                        <span style="font-size: 1.5rem; font-weight: 700;">${image.name}</span>
+                        <span style="background: var(--primary); color: white; padding: 0.25rem 1rem; border-radius: 999px; font-size: 0.875rem;">${image.badge}</span>
+                    </div>
+                    <p style="font-size: 1rem; opacity: 0.9;">${image.description}</p>
+                    <div style="display: flex; gap: 0.5rem; justify-content: center; margin-top: 0.5rem;">
+                        ${tagsHtml}
+                    </div>
+                </div>
+            `;
+            
+            lightboxModal.classList.add('active');
+            document.body.style.overflow = 'hidden';
+        }
+
+        function closeLightbox() {
+            lightboxModal.classList.remove('active');
+            document.body.style.overflow = '';
+            lightboxImage.src = '';
+        }
+
+        function navigateLightbox(direction) {
+            currentImageIndex += direction;
+            
+            if (currentImageIndex < 0) {
+                currentImageIndex = galleryImages.length - 1;
+            } else if (currentImageIndex >= galleryImages.length) {
+                currentImageIndex = 0;
+            }
+            
+            openLightbox(currentImageIndex);
+        }
+
+        // Event listeners for lightbox
+        if (lightboxClose) {
+            lightboxClose.addEventListener('click', (e) => {
+                e.stopPropagation();
+                closeLightbox();
+            });
+        }
+
+        if (lightboxPrev) {
+            lightboxPrev.addEventListener('click', (e) => {
+                e.stopPropagation();
+                navigateLightbox(-1);
+            });
+        }
+
+        if (lightboxNext) {
+            lightboxNext.addEventListener('click', (e) => {
+                e.stopPropagation();
+                navigateLightbox(1);
+            });
+        }
+
+        // Close lightbox when clicking outside the image
+        if (lightboxModal) {
+            lightboxModal.addEventListener('click', function(e) {
+                if (e.target === lightboxModal) {
+                    closeLightbox();
+                }
+            });
+        }
+
+        // Keyboard navigation
+        document.addEventListener('keydown', function(e) {
+            if (lightboxModal && lightboxModal.classList.contains('active')) {
+                if (e.key === 'Escape') {
+                    closeLightbox();
+                } else if (e.key === 'ArrowLeft') {
+                    navigateLightbox(-1);
+                } else if (e.key === 'ArrowRight') {
+                    navigateLightbox(1);
+                }
+            }
+        });
+
+        // Smooth scroll for anchor links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    target.scrollIntoView({
+                        behavior: 'smooth',
+                        block: 'start'
+                    });
+                    // Close mobile menu if open
+                    if (navMenu) {
+                        navMenu.classList.remove('active');
+                    }
+                }
+            });
+        });
+
+        // Prevent body scroll when lightbox is open
+        window.addEventListener('scroll', function() {
+            if (lightboxModal && lightboxModal.classList.contains('active')) {
+                window.scrollTo(0, parseInt(window.scrollY || '0'));
+            }
+        });
+
+        // Newsletter form submission
+        const newsletterForm = document.querySelector('.newsletter-form');
+        if (newsletterForm) {
+            newsletterForm.addEventListener('submit', function(e) {
+                e.preventDefault();
+                const input = this.querySelector('input[type="email"]');
+                const email = input.value;
+                
+                if (email && email.includes('@')) {
+                    alert('Thanks for subscribing! 🐕 You\'ll receive our next update.');
+                    input.value = '';
+                } else {
+                    alert('Please enter a valid email address.');
+                }
+            });
+        }
+    </script>
+  </body>
+</html>

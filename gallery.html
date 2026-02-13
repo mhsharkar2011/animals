@@ -1,0 +1,252 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Dogs Lover | Gallery</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+<link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+  <!-- Navigation -->
+  <nav class="navbar">
+    <div class="nav-container">
+      <a href="index.html" class="nav-logo">
+        <i class="fas fa-paw"></i> Dogs Lover
+      </a>
+      
+      <button class="nav-toggle" id="navToggle">
+        <i class="fas fa-bars"></i>
+      </button>
+      
+      <ul class="nav-menu" id="navMenu">
+        <li><a href="index.html" class="nav-link"><i class="fas fa-home"></i> Home</a></li>
+        <li><a href="about.html" class="nav-link"><i class="fas fa-user-friends"></i> About</a></li>
+        <li><a href="gallery.html" class="nav-link active"><i class="fas fa-images"></i> Gallery</a></li>
+        <li><a href="contact.html" class="nav-link"><i class="fas fa-envelope"></i> Contact</a></li>
+      </ul>
+      
+      <div class="nav-social">
+        <a href="https://instagram.com/yourusername" class="social-icon" target="_blank">
+          <i class="fab fa-instagram"></i>
+        </a>
+        <a href="https://wa.me/8801XXXXXXXXX" class="social-icon" target="_blank">
+          <i class="fab fa-whatsapp"></i>
+        </a>
+      </div>
+    </div>
+  </nav>
+
+  <!-- Gallery Hero -->
+  <header class="page-hero">
+    <div class="container">
+      <h1 class="page-title">Photo Gallery</h1>
+      <p class="page-subtitle">Capturing moments of joy, love, and doggy adventures</p>
+    </div>
+  </header>
+
+  <!-- Gallery Content -->
+  <section class="section gallery-section">
+    <div class="container">
+      <div class="gallery-filters">
+        <button class="filter-btn active" data-filter="all">All Photos</button>
+        <button class="filter-btn" data-filter="roky">Roky</button>
+        <button class="filter-btn" data-filter="simy">Simy</button>
+        <button class="filter-btn" data-filter="mily">Mily</button>
+        <button class="filter-btn" data-filter="nila">Nila</button>
+        <button class="filter-btn" data-filter="mila">Mila</button>
+        <button class="filter-btn" data-filter="laly">Laly</button>
+      </div>
+      
+      <div class="gallery-grid">
+        <!-- Photo 1 -->
+        <div class="gallery-item" data-category="roky">
+          <div class="gallery-image">
+            <img src="dog1.jpg" alt="Roky on Guard" style="height: 246px; width: 367px; object-fit: cover;">
+          </div>
+          <div class="gallery-info">
+            <h3>Roky on Guard</h3>
+            <p>Protecting the house like a true guardian</p>
+            <span class="gallery-tag">Roky</span>
+          </div>
+        </div>
+        
+        <!-- Photo 2 -->
+        <div class="gallery-item" data-category="simy">
+          <div class="gallery-image">
+            <img src="dog2.jpg" alt="Simy the dog" style="height: 246px; width: 367px; object-fit: cover;">
+          </div>
+          <div class="gallery-info">
+            <h3>Simy's Drama</h3>
+            <p>When she doesn't get enough attention</p>
+            <span class="gallery-tag">Simy</span>
+          </div>
+        </div>
+        
+        <!-- Photo 3 -->
+        <div class="gallery-item" data-category="mily">
+          <div class="gallery-image">
+            <img src="dog3.jpg" alt="Mily the dog" style="height: 246px; width: 367px; object-fit: cover;">
+          </div>
+          <div class="gallery-info">
+            <h3>Mily's Energy</h3>
+            <p>Non-stop running and playing</p>
+            <span class="gallery-tag">Mily</span>
+          </div>
+        </div>
+        
+        <!-- Photo 4 -->
+        <div class="gallery-item" data-category="nila">
+          <div class="gallery-image">
+            <img src="dog4.jpg" alt="Nila the dog" style="height: 246px; width: 367px; object-fit: cover;">
+          </div>
+          <div class="gallery-info">
+            <h3>Nila's Wisdom</h3>
+            <p>That wise look that understands everything</p>
+            <span class="gallery-tag">Nila</span>
+          </div>
+        </div>
+        
+        <!-- Photo 5 -->
+        <div class="gallery-item" data-category="mila">
+          <div class="gallery-image">
+            <img src="dog5.jpg" alt="Mila the dog" style="height: 246px; width: 367px; object-fit: cover;">
+          </div>
+          <div class="gallery-info">
+            <h3>Mila Exploring</h3>
+            <p>Curious about everything around her</p>
+            <span class="gallery-tag">Mila</span>
+          </div>
+        </div>
+        
+        <!-- Photo 6 -->
+        <div class="gallery-item" data-category="laly">
+          <div class="gallery-image">
+            <img src="dog6.jpg" alt="Laly the dog" style="height: 246px; width: 367px; object-fit: cover;">
+          </div>
+          <div class="gallery-info">
+            <h3>Laly's Attitude</h3>
+            <p>Small size, big personality</p>
+            <span class="gallery-tag">Laly</span>
+          </div>
+        </div>
+        
+        <!-- Photo 7 -->
+        <div class="gallery-item" data-category="roky">
+          <div class="gallery-image">
+            <img src="dog7.jpg" alt="Roky on Guard" style="height: 246px; width: 367px; object-fit: cover;">
+          </div>
+          <div class="gallery-info">
+            <h3>Roky Relaxing</h3>
+            <p>Even guardians need their rest</p>
+            <span class="gallery-tag">Roky</span>
+          </div>
+        </div>
+        
+        <!-- Photo 8 -->
+        <div class="gallery-item" data-category="simy">
+          <div class="gallery-image">
+            <img src="dog8.jpg" alt="Simy's Royal Pose" style="height: 246px; width: 367px; object-fit: cover;">
+          </div>
+          <div class="gallery-info">
+            <h3>Simy's Royal Pose</h3>
+            <p>Looking like the queen she is</p>
+            <span class="gallery-tag">Simy</span>
+          </div>
+        </div>
+      </div>
+      
+      <div class="gallery-cta">
+        <p>Want to see more photos? Follow us on social media!</p>
+        <div class="cta-buttons">
+          <a href="https://instagram.com/yourusername" class="btn btn-primary" target="_blank">
+            <i class="fab fa-instagram"></i> Instagram
+          </a>
+          <a href="#" class="btn btn-outline">
+            <i class="fas fa-upload"></i> Share Your Photos
+          </a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer class="footer">
+    <div class="container">
+      <div class="footer-content">
+        <div class="footer-logo">
+          <h3><i class="fas fa-paw"></i> Dogs Lover</h3>
+          <p>A tribute to unconditional love and furry friendships.</p>
+        </div>
+        
+        <div class="footer-links">
+          <h4>Quick Links</h4>
+          <ul>
+            <li><a href="index.html">Home</a></li>
+            <li><a href="about.html">About</a></li>
+            <li><a href="gallery.html">Gallery</a></li>
+            <li><a href="contact.html">Contact</a></li>
+          </ul>
+        </div>
+        
+        <div class="footer-contact">
+          <h4>Connect With Us</h4>
+          <div class="footer-social">
+            <a href="https://instagram.com/yourusername" class="social-icon" target="_blank">
+              <i class="fab fa-instagram"></i>
+            </a>
+            <a href="https://wa.me/8801XXXXXXXXX" class="social-icon" target="_blank">
+              <i class="fab fa-whatsapp"></i>
+            </a>
+            <a href="#" class="social-icon">
+              <i class="fab fa-facebook"></i>
+            </a>
+            <a href="#" class="social-icon">
+              <i class="fab fa-youtube"></i>
+            </a>
+          </div>
+        </div>
+      </div>
+      
+      <div class="footer-bottom">
+        <p>Dogs Lover | Made with ❤️, 🐾 & a lot of dog hair</p>
+        <p class="copyright">© 2023 Dogs Lover. All rights reserved.</p>
+      </div>
+    </div>
+  </footer>
+
+  <script src="script.js"></script>
+  <script>
+    // Gallery filtering functionality
+    document.addEventListener('DOMContentLoaded', function() {
+      const filterButtons = document.querySelectorAll('.filter-btn');
+      const galleryItems = document.querySelectorAll('.gallery-item');
+      
+      filterButtons.forEach(button => {
+        button.addEventListener('click', function() {
+          // Remove active class from all buttons
+          filterButtons.forEach(btn => btn.classList.remove('active'));
+          
+          // Add active class to clicked button
+          this.classList.add('active');
+          
+          const filterValue = this.getAttribute('data-filter');
+          
+          // Show/hide gallery items based on filter
+          galleryItems.forEach(item => {
+            if (filterValue === 'all' || item.getAttribute('data-category') === filterValue) {
+              item.style.display = 'block';
+            } else {
+              item.style.display = 'none';
+            }
+          });
+        });
+      });
+    });
+  </script>
+</body>
+</html>

@@ -1,522 +1,335 @@
 // Mobile Navigation Toggle
-document.addEventListener("DOMContentLoaded", function () {
-  const navToggle = document.getElementById("navToggle");
-  const navMenu = document.getElementById("navMenu");
+const navToggle = document.getElementById("navToggle");
+const navMenu = document.getElementById("navMenu");
 
-  if (navToggle && navMenu) {
-    navToggle.addEventListener("click", function () {
-      navMenu.classList.toggle("active");
+navToggle.addEventListener("click", () => {
+  navMenu.classList.toggle("active");
+  navToggle.classList.toggle("active");
+});
 
-      // Change icon
-      const icon = navToggle.querySelector("i");
-      if (navMenu.classList.contains("active")) {
-        icon.classList.remove("fa-bars");
-        icon.classList.add("fa-times");
-      } else {
-        icon.classList.remove("fa-times");
-        icon.classList.add("fa-bars");
-      }
-    });
+// Set current year in footer
+document.getElementById("currentYear").textContent = new Date().getFullYear();
 
-    // Close menu when clicking on a link
-    const navLinks = document.querySelectorAll(".nav-link");
-    navLinks.forEach((link) => {
-      link.addEventListener("click", function () {
-        navMenu.classList.remove("active");
-        const icon = navToggle.querySelector("i");
-        icon.classList.remove("fa-times");
-        icon.classList.add("fa-bars");
+// Smooth scroll for anchor links
+document.querySelectorAll('a[href^="#"]').forEach((anchor) => {
+  anchor.addEventListener("click", function (e) {
+    e.preventDefault();
+    const target = document.querySelector(this.getAttribute("href"));
+    if (target) {
+      target.scrollIntoView({
+        behavior: "smooth",
+        block: "start",
       });
-    });
+      // Close mobile menu if open
+      navMenu.classList.remove("active");
+    }
+  });
+});
 
-    // Close menu when clicking outside
-    document.addEventListener("click", function (event) {
-      const isClickInsideNav =
-        navToggle.contains(event.target) || navMenu.contains(event.target);
+// Active navigation highlight
+const sections = document.querySelectorAll("section[id]");
+const navLinks = document.querySelectorAll(".nav-link");
 
-      if (!isClickInsideNav && navMenu.classList.contains("active")) {
-        navMenu.classList.remove("active");
-        const icon = navToggle.querySelector("i");
-        icon.classList.remove("fa-times");
-        icon.classList.add("fa-bars");
-      }
-    });
-  }
-
-  // Set active nav link based on current page
-  const currentPage = window.location.pathname.split("/").pop();
-  const navLinks = document.querySelectorAll(".nav-link");
-
-  navLinks.forEach((link) => {
-    const linkPage = link.getAttribute("href");
-
-    if (
-      linkPage === currentPage ||
-      (currentPage === "" && linkPage === "index.html") ||
-      (currentPage === "index.html" && linkPage === "index.html")
-    ) {
-      link.classList.add("active");
-    } else {
-      link.classList.remove("active");
+window.addEventListener("scroll", () => {
+  let current = "";
+  sections.forEach((section) => {
+    const sectionTop = section.offsetTop;
+    const sectionHeight = section.clientHeight;
+    if (scrollY >= sectionTop - 200) {
+      current = section.getAttribute("id");
     }
   });
 
-  // Fade in animation on scroll
-  const fadeElements = document.querySelectorAll(".fade-in");
-
-  const fadeInOnScroll = function () {
-    fadeElements.forEach((element) => {
-      const elementTop = element.getBoundingClientRect().top;
-      const elementVisible = 150;
-
-      if (elementTop < window.innerHeight - elementVisible) {
-        element.classList.add("active");
-      }
-    });
-  };
-
-  // Check on scroll
-  window.addEventListener("scroll", fadeInOnScroll);
-
-  // Initial check
-  fadeInOnScroll();
-
-  // =============================================
-  // HERO SLIDER FUNCTIONALITY
-  // =============================================
-  const sliderContainer = document.querySelector(".slider-container");
-  const slides = document.querySelectorAll(".slider-slide");
-  const dots = document.querySelectorAll(".slider-dot");
-  const prevBtn = document.querySelector(".slider-btn-prev");
-  const nextBtn = document.querySelector(".slider-btn-next");
-  const progressBar = document.querySelector(".slider-progress-bar");
-
-  let currentSlide = 0;
-  let slideInterval;
-  const slideDuration = 5000; // 5 seconds per slide
-
-  // Initialize slider
-  function initSlider() {
-    if (!sliderContainer) return;
-
-    // Start autoplay
-    startAutoSlide();
-
-    // Add click event to dots
-    dots.forEach((dot) => {
-      dot.addEventListener("click", function () {
-        const slideIndex = parseInt(this.getAttribute("data-slide"));
-        goToSlide(slideIndex);
-        resetAutoSlide();
-      });
-    });
-
-    // Add click event to navigation buttons
-    if (prevBtn) {
-      prevBtn.addEventListener("click", function () {
-        prevSlide();
-        resetAutoSlide();
-      });
+  navLinks.forEach((link) => {
+    link.classList.remove("active");
+    if (link.getAttribute("href") === `#${current}`) {
+      link.classList.add("active");
     }
-
-    if (nextBtn) {
-      nextBtn.addEventListener("click", function () {
-        nextSlide();
-        resetAutoSlide();
-      });
-    }
-
-    // Progress bar animation
-    updateProgressBar();
-
-    // Pause autoplay on hover
-    sliderContainer.addEventListener("mouseenter", pauseAutoSlide);
-    sliderContainer.addEventListener("mouseleave", startAutoSlide);
-
-    // Keyboard navigation
-    document.addEventListener("keydown", function (e) {
-      if (e.key === "ArrowLeft") {
-        prevSlide();
-        resetAutoSlide();
-      } else if (e.key === "ArrowRight") {
-        nextSlide();
-        resetAutoSlide();
-      }
-    });
-  }
-
-  // Go to specific slide
-  function goToSlide(index) {
-    // Remove active class from all slides and dots
-    slides.forEach((slide) => slide.classList.remove("active"));
-    dots.forEach((dot) => dot.classList.remove("active"));
-
-    // Update current slide index
-    currentSlide = index;
-
-    // Ensure index is within bounds
-    if (currentSlide >= slides.length) currentSlide = 0;
-    if (currentSlide < 0) currentSlide = slides.length - 1;
-
-    // Add active class to current slide and dot
-    slides[currentSlide].classList.add("active");
-    dots[currentSlide].classList.add("active");
-
-    // Update progress bar
-    updateProgressBar();
-  }
-
-  // Next slide
-  function nextSlide() {
-    goToSlide(currentSlide + 1);
-  }
-
-  // Previous slide
-  function prevSlide() {
-    goToSlide(currentSlide - 1);
-  }
-
-  // Start autoplay
-  function startAutoSlide() {
-    if (slideInterval) clearInterval(slideInterval);
-
-    slideInterval = setInterval(() => {
-      nextSlide();
-    }, slideDuration);
-  }
-
-  // Pause autoplay
-  function pauseAutoSlide() {
-    if (slideInterval) {
-      clearInterval(slideInterval);
-      slideInterval = null;
-    }
-  }
-
-  // Reset autoplay timer
-  function resetAutoSlide() {
-    pauseAutoSlide();
-    startAutoSlide();
-  }
-
-  // Update progress bar
-  function updateProgressBar() {
-    if (!progressBar) return;
-
-    // Reset progress bar
-    progressBar.style.width = "0%";
-
-    // Animate progress bar
-    let progress = 0;
-    const progressInterval = setInterval(() => {
-      progress += 100 / (slideDuration / 50); // Update every 50ms
-      progressBar.style.width = progress + "%";
-
-      if (progress >= 100) {
-        clearInterval(progressInterval);
-      }
-    }, 50);
-  }
-
-  // Initialize slider if it exists
-  if (sliderContainer) {
-    initSlider();
-  }
-
-  // =============================================
-  // FLOATING DOGS FOR EACH SLIDE
-  // =============================================
-  function addFloatingDogs() {
-    const slides = document.querySelectorAll(".slider-slide");
-
-    slides.forEach((slide, index) => {
-      const floatingDogsContainer = document.createElement("div");
-      floatingDogsContainer.className = "floating-dogs";
-
-      // Add different number of dogs to each slide
-      const dogCount = 3 + index; // 3, 4, 5, 6 dogs
-
-      for (let i = 0; i < dogCount; i++) {
-        const dog = document.createElement("div");
-        dog.className = `floating-dog floating-dog-${i + 1}`;
-
-        // Alternate between dog and paw icons
-        if (i % 2 === 0) {
-          dog.innerHTML = '<i class="fas fa-dog"></i>';
-        } else {
-          dog.innerHTML = '<i class="fas fa-paw"></i>';
-        }
-
-        // Randomize position
-        const top = 10 + Math.random() * 80;
-        const left = 5 + Math.random() * 90;
-        dog.style.top = `${top}%`;
-        dog.style.left = `${left}%`;
-
-        // Randomize size
-        const size = 2 + Math.random() * 3;
-        dog.style.fontSize = `${size}rem`;
-
-        // Randomize animation delay
-        const delay = Math.random() * 5;
-        dog.style.animationDelay = `${delay}s`;
-
-        floatingDogsContainer.appendChild(dog);
-      }
-
-      slide.appendChild(floatingDogsContainer);
-    });
-  }
-
-  // Add floating dogs to slides
-  if (document.querySelector(".slider-slide")) {
-    addFloatingDogs();
-  }
-
-  // ... rest of existing code ...
+  });
 });
 
-// Footer functionality
-function initFooter() {
-  // Update current year
-  const yearElement = document.getElementById("currentYear");
-  if (yearElement) {
-    yearElement.textContent = new Date().getFullYear();
-  }
-
-  // Update current date
-  const dateElement = document.getElementById("currentDate");
-  if (dateElement) {
-    const updateDate = () => {
-      const now = new Date();
-      const options = {
-        weekday: "long",
-        year: "numeric",
-        month: "long",
-        day: "numeric",
-        hour: "2-digit",
-        minute: "2-digit",
-      };
-      dateElement.textContent = now.toLocaleDateString("en-US", options);
-    };
-
-    updateDate();
-    // Update time every minute
-    setInterval(updateDate, 60000);
-  }
-
-  // Back to top button
-  const backToTopBtn = document.getElementById("backToTop");
-  if (backToTopBtn) {
-    window.addEventListener("scroll", () => {
-      if (window.pageYOffset > 300) {
-        backToTopBtn.classList.add("show");
-      } else {
-        backToTopBtn.classList.remove("show");
+// Lazy loading images
+if ("IntersectionObserver" in window) {
+  const imageObserver = new IntersectionObserver((entries, observer) => {
+    entries.forEach((entry) => {
+      if (entry.isIntersecting) {
+        const img = entry.target;
+        img.src = img.dataset.src;
+        img.classList.remove("lazy");
+        imageObserver.unobserve(img);
       }
     });
+  });
 
-    backToTopBtn.addEventListener("click", () => {
-      window.scrollTo({
-        top: 0,
-        behavior: "smooth",
-      });
-    });
-  }
-
-  // Newsletter form submission
-  const newsletterForm = document.querySelector(".newsletter-form");
-  if (newsletterForm) {
-    newsletterForm.addEventListener("submit", function (e) {
-      e.preventDefault();
-      const emailInput = this.querySelector('input[type="email"]');
-      const email = emailInput.value.trim();
-
-      if (email) {
-        // In a real application, you would send this to a server
-        // For demo purposes, show success message
-        alert(
-          `Thank you! You've subscribed with: ${email}\nYou'll receive updates about our dogs soon! 🐶`,
-        );
-        emailInput.value = "";
-
-        // Add visual feedback
-        const submitBtn = this.querySelector("button");
-        const originalHTML = submitBtn.innerHTML;
-        submitBtn.innerHTML = '<i class="fas fa-check"></i>';
-        submitBtn.style.background = "#25d366";
-
-        setTimeout(() => {
-          submitBtn.innerHTML = originalHTML;
-          submitBtn.style.background = "";
-        }, 2000);
-      }
-    });
-  }
-
-  // Add ripple effect to footer links
-  const footerLinks = document.querySelectorAll(
-    ".footer-link, .social-btn, .legal-link",
-  );
-  footerLinks.forEach((link) => {
-    link.addEventListener("click", function (e) {
-      const ripple = document.createElement("span");
-      const rect = this.getBoundingClientRect();
-      const size = Math.max(rect.width, rect.height);
-      const x = e.clientX - rect.left - size / 2;
-      const y = e.clientY - rect.top - size / 2;
-
-      ripple.style.cssText = `
-        position: absolute;
-        border-radius: 50%;
-        background: rgba(255, 255, 255, 0.3);
-        transform: scale(0);
-        animation: ripple-animation 0.6s linear;
-        width: ${size}px;
-        height: ${size}px;
-        top: ${y}px;
-        left: ${x}px;
-        pointer-events: none;
-      `;
-
-      this.style.position = "relative";
-      this.style.overflow = "hidden";
-      this.appendChild(ripple);
-
-      setTimeout(() => {
-        ripple.remove();
-      }, 600);
-    });
+  document.querySelectorAll("img[data-src]").forEach((img) => {
+    imageObserver.observe(img);
   });
 }
 
-// Add ripple animation to CSS
-const rippleStyles = document.createElement("style");
-rippleStyles.textContent = `
-  @keyframes ripple-animation {
-    to {
-      transform: scale(4);
-      opacity: 0;
-    }
-  }
-`;
-document.head.appendChild(rippleStyles);
-
-// Initialize footer when DOM is loaded
-document.addEventListener("DOMContentLoaded", function () {
-  // Your existing code...
-
-  // Initialize footer
-  initFooter();
-
-  // Initialize footer functionality
-  document.addEventListener("DOMContentLoaded", function () {
-    // Update current year
-    const yearElement = document.getElementById("currentYear");
-    if (yearElement) {
-      yearElement.textContent = new Date().getFullYear();
-    }
-
-    // Update current date and time
-    const dateTimeElement = document.getElementById("currentDateTime");
-    if (dateTimeElement) {
-      const updateDateTime = () => {
-        const now = new Date();
-        const options = {
-          weekday: "short",
-          year: "numeric",
-          month: "short",
-          day: "numeric",
-          hour: "2-digit",
-          minute: "2-digit",
-          timeZoneName: "short",
-        };
-        dateTimeElement.textContent = now.toLocaleDateString("en-US", options);
-      };
-
-      updateDateTime();
-      setInterval(updateDateTime, 60000); // Update every minute
-    }
-
-    // Back to top functionality
-    const backToTop = document.getElementById("backToTop");
-    if (backToTop) {
-      window.addEventListener("scroll", () => {
-        if (window.scrollY > 300) {
-          backToTop.style.opacity = "1";
-          backToTop.style.visibility = "visible";
-          backToTop.style.transform = "translateY(0)";
-        } else {
-          backToTop.style.opacity = "0";
-          backToTop.style.visibility = "hidden";
-          backToTop.style.transform = "translateY(10px)";
-        }
-      });
-
-      backToTop.addEventListener("click", () => {
-        window.scrollTo({
-          top: 0,
-          behavior: "smooth",
-        });
-      });
-
-      // Initial state
-      backToTop.style.transition = "all 0.3s ease";
-      backToTop.style.opacity = "0";
-      backToTop.style.visibility = "hidden";
-      backToTop.style.transform = "translateY(10px)";
-    }
-
-    // Newsletter form submission
-    const newsletterForm = document.querySelector(".newsletter-form-modern");
-    if (newsletterForm) {
-      newsletterForm.addEventListener("submit", function (e) {
-        e.preventDefault();
-        const emailInput = this.querySelector('input[type="email"]');
-        const checkbox = this.querySelector('input[type="checkbox"]');
-        const submitBtn = this.querySelector(".subscribe-btn");
-
-        if (!checkbox.checked) {
-          alert("Please agree to receive updates");
-          return;
-        }
-
-        if (emailInput.value) {
-          // Show success state
-          const originalHTML = submitBtn.innerHTML;
-          submitBtn.innerHTML = '<i class="fas fa-check"></i> Subscribed!';
-          submitBtn.style.background =
-            "linear-gradient(135deg, #25d366, #128c7e)";
-          submitBtn.disabled = true;
-
-          // Reset after 3 seconds
-          setTimeout(() => {
-            submitBtn.innerHTML = originalHTML;
-            submitBtn.style.background = "";
-            submitBtn.disabled = false;
-            emailInput.value = "";
-            checkbox.checked = false;
-          }, 3000);
-        }
-      });
-    }
-
-    // Add hover effects to all links
-    const footerLinks = document.querySelectorAll(
-      ".footer-link, .legal-link, .social-platform",
-    );
-    footerLinks.forEach((link) => {
-      link.addEventListener("mouseenter", function () {
-        this.style.transition = "all 0.3s cubic-bezier(0.4, 0, 0.2, 1)";
-      });
-    });
-
-    // Language selector functionality
-    const languageBtn = document.querySelector(".language-btn");
-    if (languageBtn) {
-      languageBtn.addEventListener("click", function () {
-        this.classList.toggle("active");
-      });
+function setActiveLink() {
+  const currentPage = window.location.pathname.split("/").pop() || "index.html";
+  navLinks.forEach((link) => {
+    link.classList.remove("active");
+    if (link.getAttribute("href") === currentPage) {
+      link.classList.add("active");
     }
   });
+}
+
+setActiveLink();
+
+// Gallery Filtering
+const filterButtons = document.querySelectorAll(".filter-btn");
+const galleryItems = document.querySelectorAll(".gallery-item");
+const galleryEmpty = document.getElementById("galleryEmpty");
+
+function filterGallery(filterValue) {
+  let visibleCount = 0;
+
+  galleryItems.forEach((item) => {
+    if (filterValue === "all" || item.dataset.category === filterValue) {
+      item.style.display = "block";
+      visibleCount++;
+    } else {
+      item.style.display = "none";
+    }
+  });
+
+  // Show/hide empty state
+  if (visibleCount === 0) {
+    galleryEmpty.style.display = "block";
+  } else {
+    galleryEmpty.style.display = "none";
+  }
+}
+
+filterButtons.forEach((button) => {
+  button.addEventListener("click", function () {
+    // Remove active class from all buttons
+    filterButtons.forEach((btn) => btn.classList.remove("active"));
+
+    // Add active class to clicked button
+    this.classList.add("active");
+
+    const filterValue = this.dataset.filter;
+    filterGallery(filterValue);
+  });
+});
+
+// Lightbox functionality
+const lightboxModal = document.getElementById("lightboxModal");
+const lightboxImage = document.getElementById("lightboxImage");
+const lightboxCaption = document.getElementById("lightboxCaption");
+const lightboxClose = document.getElementById("lightboxClose");
+const lightboxPrev = document.getElementById("lightboxPrev");
+const lightboxNext = document.getElementById("lightboxNext");
+
+let currentImageIndex = 0;
+let galleryImages = [];
+
+// Collect all gallery images
+document.querySelectorAll(".gallery-item").forEach((item, index) => {
+  const img = item.querySelector("img");
+  const title =
+    item.querySelector(".gallery-title")?.textContent || "Dog Photo";
+  const category = item.dataset.category;
+
+  galleryImages.push({
+    src: img.src,
+    title: title,
+    category: category,
+    element: item,
+  });
+
+  // Add click event to open lightbox
+  item.addEventListener("click", function () {
+    currentImageIndex = index;
+    openLightbox(index);
+  });
+});
+
+function openLightbox(index) {
+  const image = galleryImages[index];
+  lightboxImage.src = image.src;
+  lightboxCaption.textContent = `${image.title} • ${image.category}`;
+  lightboxModal.classList.add("active");
+  document.body.style.overflow = "hidden";
+}
+
+function closeLightbox() {
+  lightboxModal.classList.remove("active");
+  document.body.style.overflow = "";
+}
+
+function navigateLightbox(direction) {
+  currentImageIndex += direction;
+
+  if (currentImageIndex < 0) {
+    currentImageIndex = galleryImages.length - 1;
+  } else if (currentImageIndex >= galleryImages.length) {
+    currentImageIndex = 0;
+  }
+
+  const image = galleryImages[currentImageIndex];
+  lightboxImage.src = image.src;
+  lightboxCaption.textContent = `${image.title} • ${image.category}`;
+}
+
+lightboxClose.addEventListener("click", closeLightbox);
+lightboxPrev.addEventListener("click", (e) => {
+  e.stopPropagation();
+  navigateLightbox(-1);
+});
+lightboxNext.addEventListener("click", (e) => {
+  e.stopPropagation();
+  navigateLightbox(1);
+});
+
+// Close lightbox when clicking outside the image
+lightboxModal.addEventListener("click", function (e) {
+  if (e.target === lightboxModal) {
+    closeLightbox();
+  }
+});
+
+// Keyboard navigation
+document.addEventListener("keydown", function (e) {
+  if (lightboxModal.classList.contains("active")) {
+    if (e.key === "Escape") {
+      closeLightbox();
+    } else if (e.key === "ArrowLeft") {
+      navigateLightbox(-1);
+    } else if (e.key === "ArrowRight") {
+      navigateLightbox(1);
+    }
+  }
+});
+
+// Like button functionality
+document.querySelectorAll(".gallery-likes i").forEach((heart) => {
+  heart.addEventListener("click", function (e) {
+    e.stopPropagation();
+    this.classList.toggle("fas");
+    this.classList.toggle("far");
+
+    const countSpan = this.parentElement;
+    let count = parseInt(countSpan.textContent);
+
+    if (this.classList.contains("fas")) {
+      countSpan.innerHTML = `<i class="fas fa-heart" style="color: #ef4444;"></i> ${count + 1}`;
+    } else {
+      countSpan.innerHTML = `<i class="far fa-heart"></i> ${count - 1}`;
+    }
+  });
+});
+
+// Contact Form Handling
+const contactForm = document.getElementById("contactForm");
+const alertContainer = document.getElementById("alertContainer");
+
+function showAlert(message, type = "success") {
+  const alertDiv = document.createElement("div");
+  alertDiv.className = `alert alert-${type}`;
+  alertDiv.innerHTML = `
+                <i class="fas ${type === "success" ? "fa-check-circle" : "fa-exclamation-circle"}"></i>
+                <span>${message}</span>
+            `;
+
+  alertContainer.innerHTML = "";
+  alertContainer.appendChild(alertDiv);
+
+  // Auto dismiss after 5 seconds
+  setTimeout(() => {
+    alertDiv.remove();
+  }, 5000);
+}
+
+function validateForm(name, email, subject, message) {
+  if (!name.trim()) {
+    showAlert("Please enter your name", "error");
+    return false;
+  }
+
+  if (!email.trim()) {
+    showAlert("Please enter your email address", "error");
+    return false;
+  }
+
+  const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+  if (!emailRegex.test(email)) {
+    showAlert("Please enter a valid email address", "error");
+    return false;
+  }
+
+  if (!subject.trim()) {
+    showAlert("Please enter a subject", "error");
+    return false;
+  }
+
+  if (!message.trim()) {
+    showAlert("Please enter your message", "error");
+    return false;
+  }
+
+  return true;
+}
+
+contactForm.addEventListener("submit", function (e) {
+  e.preventDefault();
+
+  // Get form values
+  const name = document.getElementById("name").value;
+  const email = document.getElementById("email").value;
+  const subject = document.getElementById("subject").value;
+  const message = document.getElementById("message").value;
+
+  // Validate form
+  if (!validateForm(name, email, subject, message)) {
+    return;
+  }
+
+  // Simulate form submission
+  const submitBtn = this.querySelector('button[type="submit"]');
+  const originalText = submitBtn.innerHTML;
+
+  submitBtn.innerHTML = '<i class="fas fa-spinner fa-spin"></i> Sending...';
+  submitBtn.disabled = true;
+
+  // Simulate API call
+  setTimeout(() => {
+    // Show success message
+    showAlert(
+      `Thank you, ${name}! Your message has been sent. We'll bark back soon! 🐕`,
+      "success",
+    );
+
+    // Reset form
+    contactForm.reset();
+
+    // Restore button
+    submitBtn.innerHTML = originalText;
+    submitBtn.disabled = false;
+  }, 1500);
+});
+
+// Smooth scroll for anchor links
+document.querySelectorAll('a[href^="#"]').forEach((anchor) => {
+  anchor.addEventListener("click", function (e) {
+    e.preventDefault();
+    const target = document.querySelector(this.getAttribute("href"));
+    if (target) {
+      target.scrollIntoView({
+        behavior: "smooth",
+        block: "start",
+      });
+      // Close mobile menu if open
+      navMenu.classList.remove("active");
+    }
+  });
+});
+
+// Add floating animation to contact icons
+const contactIcons = document.querySelectorAll(".contact-icon");
+contactIcons.forEach((icon, index) => {
+  icon.style.animation = `fadeInUp 0.5s ease-out ${index * 0.1}s both`;
 });

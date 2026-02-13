@@ -1,245 +1,360 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Dogs Lover | Contact</title>
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-<link rel="stylesheet" href="style.css">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dogs Lover | Contact - Let's Connect</title>
+    
+    <!-- Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Poppins:wght@400;500;600;700&display=swap" rel="stylesheet">
+    
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="style.css">
 </head>
 
 <body>
-  <!-- Navigation -->
-  <nav class="navbar">
-    <div class="nav-container">
-      <a href="index.html" class="nav-logo">
-        <i class="fas fa-paw"></i> Dogs Lover
-      </a>
-      
-      <button class="nav-toggle" id="navToggle">
-        <i class="fas fa-bars"></i>
-      </button>
-      
-      <ul class="nav-menu" id="navMenu">
-        <li><a href="index.html" class="nav-link"><i class="fas fa-home"></i> Home</a></li>
-        <li><a href="about.html" class="nav-link"><i class="fas fa-user-friends"></i> About</a></li>
-        <li><a href="gallery.html" class="nav-link"><i class="fas fa-images"></i> Gallery</a></li>
-        <li><a href="contact.html" class="nav-link active"><i class="fas fa-envelope"></i> Contact</a></li>
-      </ul>
-      
-      <div class="nav-social">
-        <a href="https://instagram.com/yourusername" class="social-icon" target="_blank">
-          <i class="fab fa-instagram"></i>
+    <!-- Navigation -->
+       <nav class="navbar">
+      <div class="nav-container">
+        <a href="index.html" class="nav-logo">
+          <div class="logo-icon">
+            <i class="fas fa-paw"></i>
+          </div>
+          <span class="logo-text">Dogs Lover</span>
         </a>
-        <a href="https://wa.me/8801XXXXXXXXX" class="social-icon" target="_blank">
-          <i class="fab fa-whatsapp"></i>
-        </a>
-      </div>
-    </div>
-  </nav>
 
-  <!-- Contact Hero -->
-  <header class="page-hero">
-    <div class="container">
-      <h1 class="page-title">Contact Us</h1>
-      <p class="page-subtitle">Let's connect and share the love for dogs</p>
-    </div>
-  </header>
+        <button class="nav-toggle" id="navToggle">
+          <i class="fas fa-bars"></i>
+        </button>
 
-  <!-- Contact Content -->
-  <section class="section contact-section">
-    <div class="container">
-      <div class="contact-content">
-        <div class="contact-info">
-          <h2>Get In Touch</h2>
-          <p>Have questions about our dogs? Want to share your own dog stories? We'd love to hear from you!</p>
-          
-          <div class="contact-details">
-            <div class="contact-item">
-              <div class="contact-icon">
-                <i class="fas fa-map-marker-alt"></i>
-              </div>
-              <div>
-                <h3>Location</h3>
-                <p>Bangladesh</p>
-              </div>
-            </div>
-            
-            <div class="contact-item">
-              <div class="contact-icon">
-                <i class="fas fa-envelope"></i>
-              </div>
-              <div>
-                <h3>Email</h3>
-                <p>hello@dogslover.com</p>
-              </div>
-            </div>
-            
-            <div class="contact-item">
-              <div class="contact-icon">
-                <i class="fas fa-phone"></i>
-              </div>
-              <div>
-                <h3>Phone</h3>
-                <p>+880 1XXX-XXXXXX</p>
-              </div>
-            </div>
-            
-            <div class="contact-item">
-              <div class="contact-icon">
-                <i class="fas fa-clock"></i>
-              </div>
-              <div>
-                <h3>Available</h3>
-                <p>Always for dog talk! 🐶</p>
-              </div>
-            </div>
-          </div>
-          
-          <div class="social-links">
-            <h3>Follow Us</h3>
-            <div class="social-icons">
-              <a href="https://instagram.com/yourusername" class="social-icon" target="_blank">
-                <i class="fab fa-instagram"></i>
-              </a>
-              <a href="https://wa.me/8801XXXXXXXXX" class="social-icon" target="_blank">
-                <i class="fab fa-whatsapp"></i>
-              </a>
-              <a href="#" class="social-icon">
-                <i class="fab fa-facebook"></i>
-              </a>
-              <a href="#" class="social-icon">
-                <i class="fab fa-youtube"></i>
-              </a>
-            </div>
-          </div>
-        </div>
-        
-        <div class="contact-form">
-          <h2>Send a Message</h2>
-          <form id="contactForm">
-            <div class="form-group">
-              <label for="name">Your Name</label>
-              <input type="text" id="name" placeholder="Enter your name" required>
-            </div>
-            
-            <div class="form-group">
-              <label for="email">Your Email</label>
-              <input type="email" id="email" placeholder="Enter your email" required>
-            </div>
-            
-            <div class="form-group">
-              <label for="subject">Subject</label>
-              <input type="text" id="subject" placeholder="What is this about?" required>
-            </div>
-            
-            <div class="form-group">
-              <label for="message">Your Message</label>
-              <textarea id="message" rows="5" placeholder="Tell us about your dogs or ask us anything!" required></textarea>
-            </div>
-            
-            <button type="submit" class="btn btn-primary">
-              <i class="fas fa-paper-plane"></i> Send Message
-            </button>
-          </form>
-        </div>
+        <ul class="nav-menu" id="navMenu">
+          <li>
+            <a href="index.html" class="nav-link">
+              <i class="fas fa-home"></i> Home
+            </a>
+          </li>
+          <li>
+            <a href="about.html" class="nav-link">
+              <i class="fas fa-heart"></i> About
+            </a>
+          </li>
+          <li>
+            <a href="gallery.html" class="nav-link">
+              <i class="fas fa-camera"></i> Gallery
+            </a>
+          </li>
+          <li>
+            <a href="contact.html" class="nav-link active">
+              <i class="fas fa-envelope"></i> Contact
+            </a>
+          </li>
+        </ul>
       </div>
-      
-      <div class="faq-section">
-        <h2 class="section-title">Frequently Asked Questions</h2>
-        
-        <div class="faq-grid">
-          <div class="faq-item">
-            <h3>Can I visit your dogs?</h3>
-            <p>We welcome dog lovers to visit, but please contact us first to arrange a suitable time.</p>
-          </div>
-          
-          <div class="faq-item">
-            <h3>Do you adopt dogs?</h3>
-            <p>Currently we don't have puppies for adoption, but we can guide you to local shelters.</p>
-          </div>
-          
-          <div class="faq-item">
-            <h3>What do your dogs eat?</h3>
-            <p>A balanced diet of high-quality dog food, occasional treats, and lots of love!</p>
-          </div>
-          
-          <div class="faq-item">
-            <h3>Can I share my dog photos?</h3>
-            <p>Absolutely! We love seeing other dogs. Share them with us on social media.</p>
-          </div>
-        </div>
-      </div>
-    </div>
-  </section>
+    </nav>
 
-  <!-- Footer -->
-  <footer class="footer">
-    <div class="container">
-      <div class="footer-content">
-        <div class="footer-logo">
-          <h3><i class="fas fa-paw"></i> Dogs Lover</h3>
-          <p>A tribute to unconditional love and furry friendships.</p>
+    <!-- Page Hero -->
+    <section class="page-hero">
+        <div class="container">
+            <h1 class="page-title">Contact Us</h1>
+            <p class="page-subtitle">
+                We'd love to hear from you! Share your dog stories or just say hello.
+            </p>
         </div>
-        
-        <div class="footer-links">
-          <h4>Quick Links</h4>
-          <ul>
-            <li><a href="index.html">Home</a></li>
-            <li><a href="about.html">About</a></li>
-            <li><a href="gallery.html">Gallery</a></li>
-            <li><a href="contact.html">Contact</a></li>
-          </ul>
-        </div>
-        
-        <div class="footer-contact">
-          <h4>Connect With Us</h4>
-          <div class="footer-social">
-            <a href="https://instagram.com/yourusername" class="social-icon" target="_blank">
-              <i class="fab fa-instagram"></i>
-            </a>
-            <a href="https://wa.me/8801XXXXXXXXX" class="social-icon" target="_blank">
-              <i class="fab fa-whatsapp"></i>
-            </a>
-            <a href="#" class="social-icon">
-              <i class="fab fa-facebook"></i>
-            </a>
-            <a href="#" class="social-icon">
-              <i class="fab fa-youtube"></i>
-            </a>
-          </div>
-        </div>
-      </div>
-      
-      <div class="footer-bottom">
-        <p>Dogs Lover | Made with ❤️, 🐾 & a lot of dog hair</p>
-        <p class="copyright">© 2023 Dogs Lover. All rights reserved.</p>
-      </div>
-    </div>
-  </footer>
+    </section>
 
-  <script src="script.js"></script>
-  <script>
-    // Contact form submission
-    document.getElementById('contactForm').addEventListener('submit', function(e) {
-      e.preventDefault();
-      
-      // Get form values
-      const name = document.getElementById('name').value;
-      const email = document.getElementById('email').value;
-      const subject = document.getElementById('subject').value;
-      const message = document.getElementById('message').value;
-      
-      // In a real application, you would send this data to a server
-      // For now, we'll just show a success message
-      alert(`Thank you, ${name}! Your message has been sent. We'll get back to you soon. 🐶`);
-      
-      // Reset form
-      document.getElementById('contactForm').reset();
-    });
-  </script>
+    <!-- Contact Section -->
+    <section class="section">
+        <div class="container">
+            <!-- Contact Grid -->
+            <div class="contact-grid">
+                <!-- Contact Information -->
+                <div class="contact-info-card">
+                    <div class="contact-info-header">
+                        <h2>Let's Connect</h2>
+                        <p>
+                            Have questions about our dogs? Want to share your own dog stories? 
+                            We're always happy to chat with fellow dog lovers!
+                        </p>
+                    </div>
+
+                    <div class="contact-details-grid">
+                        <div class="contact-detail-item">
+                            <div class="contact-icon">
+                                <i class="fas fa-map-marker-alt"></i>
+                            </div>
+                            <div class="contact-detail-content">
+                                <h3>Location</h3>
+                                <p>Dhaka, Bangladesh</p>
+                            </div>
+                        </div>
+
+                        <div class="contact-detail-item">
+                            <div class="contact-icon">
+                                <i class="fas fa-envelope"></i>
+                            </div>
+                            <div class="contact-detail-content">
+                                <h3>Email</h3>
+                                <p>hello@dogslover.com</p>
+                            </div>
+                        </div>
+
+                        <div class="contact-detail-item">
+                            <div class="contact-icon">
+                                <i class="fas fa-phone-alt"></i>
+                            </div>
+                            <div class="contact-detail-content">
+                                <h3>Phone</h3>
+                                <p>+880 1XXX-XXXXXX</p>
+                            </div>
+                        </div>
+
+                        <div class="contact-detail-item">
+                            <div class="contact-icon">
+                                <i class="fas fa-clock"></i>
+                            </div>
+                            <div class="contact-detail-content">
+                                <h3>Available</h3>
+                                <p>24/7 for dog talk! 🐶</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="social-connect">
+                        <h3>Connect on Social Media</h3>
+                        <div class="social-grid">
+                            <a href="https://instagram.com/yourusername" class="social-card instagram" target="_blank">
+                                <i class="fab fa-instagram"></i>
+                                <span>Instagram</span>
+                            </a>
+                            <a href="https://wa.me/8801XXXXXXXXX" class="social-card whatsapp" target="_blank">
+                                <i class="fab fa-whatsapp"></i>
+                                <span>WhatsApp</span>
+                            </a>
+                            <a href="#" class="social-card facebook">
+                                <i class="fab fa-facebook-f"></i>
+                                <span>Facebook</span>
+                            </a>
+                            <a href="#" class="social-card youtube">
+                                <i class="fab fa-youtube"></i>
+                                <span>YouTube</span>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Contact Form -->
+                <div class="contact-form-card">
+                    <h2>Send Us a Message</h2>
+                    
+                    <div id="alertContainer"></div>
+                    
+                    <form id="contactForm">
+                        <div class="form-group">
+                            <label for="name" class="form-label">Your Name</label>
+                            <input type="text" id="name" class="form-input" placeholder="Enter your full name" required>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="email" class="form-label">Email Address</label>
+                            <input type="email" id="email" class="form-input" placeholder="Enter your email" required>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="subject" class="form-label">Subject</label>
+                            <input type="text" id="subject" class="form-input" placeholder="What's this about?" required>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="message" class="form-label">Your Message</label>
+                            <textarea id="message" class="form-textarea" rows="5" 
+                                placeholder="Tell us about your dogs, ask questions, or just say hi! 🐕" required></textarea>
+                        </div>
+
+                        <button type="submit" class="btn btn-primary">
+                            <i class="fas fa-paper-plane"></i>
+                            Send Message
+                        </button>
+                    </form>
+                </div>
+            </div>
+
+            <!-- Map Section -->
+            <div class="map-section">
+                <div class="map-placeholder">
+                    <div class="map-overlay"></div>
+                    <div class="map-content">
+                        <i class="fas fa-map-marked-alt"></i>
+                        <h3>Dhaka, Bangladesh</h3>
+                        <p>Our dogs are waiting to meet you! 🐾</p>
+                        <a href="#" class="btn btn-primary" style="width: auto; display: inline-flex;">
+                            <i class="fas fa-directions"></i> Get Directions
+                        </a>
+                    </div>
+                    <!-- In a real implementation, replace with Google Maps embed -->
+                    <!-- <iframe src="https://www.google.com/maps/embed?pb=..." width="100%" height="100%" style="border:0;" allowfullscreen="" loading="lazy"></iframe> -->
+                </div>
+            </div>
+
+            <!-- FAQ Section -->
+            <div class="faq-section">
+                <div class="section-header">
+                    <h2 class="section-title">Frequently Asked Questions</h2>
+                    <p class="section-subtitle">
+                        Everything you need to know about our dogs and how to connect with us
+                    </p>
+                </div>
+
+                <div class="faq-grid">
+                    <div class="faq-item">
+                        <h3>
+                            <i class="fas fa-paw"></i>
+                            Can I visit your dogs?
+                        </h3>
+                        <p>
+                            Absolutely! We love welcoming fellow dog lovers. Please contact us first to arrange a suitable time. Our dogs get excited about visitors!
+                        </p>
+                    </div>
+
+                    <div class="faq-item">
+                        <h3>
+                            <i class="fas fa-heart"></i>
+                            Do you have puppies for adoption?
+                        </h3>
+                        <p>
+                            Currently we don't have puppies available for adoption, but we're happy to connect you with trusted local shelters and rescue organizations.
+                        </p>
+                    </div>
+
+                    <div class="faq-item">
+                        <h3>
+                            <i class="fas fa-utensils"></i>
+                            What do your dogs eat?
+                        </h3>
+                        <p>
+                            Our dogs enjoy a balanced diet of high-quality dry food, wet food, fresh vegetables, and occasional treats. We're happy to share recommendations!
+                        </p>
+                    </div>
+
+                    <div class="faq-item">
+                        <h3>
+                            <i class="fas fa-camera"></i>
+                            Can I share my dog photos?
+                        </h3>
+                        <p>
+                            Yes, please! We love seeing other dogs. Tag us on Instagram or use #DogsLoverBD for a chance to be featured in our gallery.
+                        </p>
+                    </div>
+
+                    <div class="faq-item">
+                        <h3>
+                            <i class="fas fa-calendar"></i>
+                            How can I support your work?
+                        </h3>
+                        <p>
+                            The best support is spreading love for dogs! Follow us on social media, share our content, and advocate for animal welfare in your community.
+                        </p>
+                    </div>
+
+                    <div class="faq-item">
+                        <h3>
+                            <i class="fas fa-dog"></i>
+                            What breeds are your dogs?
+                        </h3>
+                        <p>
+                            We have a mix of local breeds and rescues. Each of our six dogs has a unique story and personality that makes them special.
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-logo">
+                    <h3>
+                        <i class="fas fa-paw"></i> Dogs Lover
+                    </h3>
+                    <p>
+                        A tribute to unconditional love and furry friendships. Six dogs, one family, endless stories.
+                    </p>
+                </div>
+
+                <div class="footer-links">
+                    <h4>Quick Links</h4>
+                    <ul>
+                        <li>
+                            <a href="index.html">
+                                <i class="fas fa-chevron-right"></i> Home
+                            </a>
+                        </li>
+                        <li>
+                            <a href="about.html">
+                                <i class="fas fa-chevron-right"></i> About
+                            </a>
+                        </li>
+                        <li>
+                            <a href="gallery.html">
+                                <i class="fas fa-chevron-right"></i> Gallery
+                            </a>
+                        </li>
+                        <li>
+                            <a href="contact.html">
+                                <i class="fas fa-chevron-right"></i> Contact
+                            </a>
+                        </li>
+                    </ul>
+                </div>
+
+                <div class="footer-contact">
+                    <h4>Connect With Us</h4>
+                    <div class="footer-social">
+                        <a href="https://instagram.com/yourusername" class="social-icon" target="_blank">
+                            <i class="fab fa-instagram"></i>
+                        </a>
+                        <a href="https://wa.me/8801XXXXXXXXX" class="social-icon" target="_blank">
+                            <i class="fab fa-whatsapp"></i>
+                        </a>
+                        <a href="#" class="social-icon">
+                            <i class="fab fa-facebook-f"></i>
+                        </a>
+                        <a href="#" class="social-icon">
+                            <i class="fab fa-youtube"></i>
+                        </a>
+                    </div>
+                    <p style="margin-top: 1.5rem; color: var(--gray-400); font-size: 0.875rem;">
+                        <i class="fas fa-map-marker-alt"></i> Dhaka, Bangladesh
+                    </p>
+                    <p style="margin-top: 0.5rem; color: var(--gray-400); font-size: 0.875rem;">
+                        <i class="fas fa-envelope"></i> hello@dogslover.com
+                    </p>
+                </div>
+            </div>
+
+            <div class="footer-bottom">
+                <div>
+                    <p>© <span id="currentYear">2026</span> Dogs Lover. All rights reserved.</p>
+                </div>
+                <div class="copyright">
+                    <a href="#privacy" style="color: var(--gray-400);">Privacy Policy</a>
+                    <span style="color: var(--gray-600);">|</span>
+                    <a href="#terms" style="color: var(--gray-400);">Terms of Service</a>
+                    <span style="color: var(--gray-600);">|</span>
+                    <a href="#cookies" style="color: var(--gray-400);">Cookies</a>
+                </div>
+            </div>
+            <div style="text-align: center; margin-top: 1.5rem; color: var(--gray-500); font-size: 0.75rem;">
+                Made with <i class="fas fa-heart" style="color: #ef4444;"></i>, <i class="fas fa-paw" style="color: var(--primary);"></i> & a lot of dog hair
+            </div>
+        </div>
+    </footer>
+    <!-- Custom JS -->
+    <script src="script.js"></script>
 </body>
 </html>

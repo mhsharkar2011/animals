@@ -1,0 +1,820 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Dogs Lover | Home</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&family=Inter:wght@300;400;500;600&display=swap"
+      rel="stylesheet"
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
+    />
+    <link rel="stylesheet" href="style.css" />
+  </head>
+
+  <body>
+    <!-- Navigation -->
+    <nav class="navbar">
+      <div class="nav-container">
+        <a href="index.html" class="nav-logo">
+          <div class="logo-animated">
+                <div class="logo-circle">
+                  <i class="fas fa-paw logo-icon"></i>
+                  <div class="logo-ring-1"></div>
+                  <div class="logo-ring-2"></div>
+                </div>
+                <div class="logo-text">
+                  <h2>Dogs Lover</span></h2>
+                </div>
+              </div>
+        </a>
+
+        <button class="nav-toggle" id="navToggle">
+          <i class="fas fa-bars"></i>
+        </button>
+
+        <ul class="nav-menu" id="navMenu">
+          <li>
+            <a href="index.html" class="nav-link active"
+              ><i class="fas fa-home"></i> Home</a
+            >
+          </li>
+          <li>
+            <a href="about.html" class="nav-link"
+              ><i class="fas fa-user-friends"></i> About</a
+            >
+          </li>
+          <li>
+            <a href="gallery.html" class="nav-link"
+              ><i class="fas fa-images"></i> Gallery</a
+            >
+          </li>
+          <li>
+            <a href="contact.html" class="nav-link"
+              ><i class="fas fa-envelope"></i> Contact</a
+            >
+          </li>
+        </ul>
+
+        <div class="nav-social">
+          <a
+            href="https://instagram.com/yourusername"
+            class="social-icon"
+            target="_blank"
+          >
+            <i class="fab fa-instagram"></i>
+          </a>
+          <a
+            href="https://wa.me/8801XXXXXXXXX"
+            class="social-icon"
+            target="_blank"
+          >
+            <i class="fab fa-whatsapp"></i>
+          </a>
+        </div>
+      </div>
+    </nav>
+
+    <!-- Hero Slider -->
+    <div class="hero-slider">
+      <!-- Slider Navigation Buttons -->
+      <button class="slider-btn slider-btn-prev">
+        <i class="fas fa-chevron-left"></i>
+      </button>
+      <button class="slider-btn slider-btn-next">
+        <i class="fas fa-chevron-right"></i>
+      </button>
+
+      <!-- Slider Dots -->
+      <div class="slider-dots">
+        <button class="slider-dot active" data-slide="0"></button>
+        <button class="slider-dot" data-slide="1"></button>
+        <button class="slider-dot" data-slide="2"></button>
+        <button class="slider-dot" data-slide="3"></button>
+      </div>
+
+      <!-- Slider Container -->
+      <div class="slider-container">
+        <!-- Slide 1 -->
+        <div class="slider-slide active">
+          <div class="slide-overlay"></div>
+          <div class="slide-content">
+            <h1 class="slide-title">🐶 Dogs Lover 🐾</h1>
+            <p class="slide-subtitle">
+              Love, loyalty, fur… and zero privacy 😄
+            </p>
+            <p class="slide-description">
+              A life filled with wagging tails, wet noses, and unconditional
+              love
+            </p>
+            <div class="slide-buttons">
+              <a href="gallery.html" class="btn btn-primary">
+                <i class="fas fa-images"></i> View Gallery
+              </a>
+              <a href="about.html" class="btn btn-outline">
+                <i class="fas fa-heart"></i> Meet Our Dogs
+              </a>
+            </div>
+          </div>
+          <div
+            class="slide-background"
+            style="
+              background: linear-gradient(135deg, #ff9a3c 0%, #ffc93c 100%);
+            "
+          >
+            <img
+              src="dog1.jpg"
+              alt="Happy Golden Retriever"
+              style="height: 100%; width: 100%; object-fit: cover"
+            />
+          </div>
+        </div>
+
+        <!-- Slide 2 -->
+        <div class="slider-slide">
+          <div class="slide-overlay"></div>
+          <div class="slide-content">
+            <h1 class="slide-title">6 Dogs 🐕🐕🐕</h1>
+            <p class="slide-subtitle">Six personalities, one big family ❤️</p>
+            <p class="slide-description">
+              Each with their own unique story, personality, and special place
+              in our hearts
+            </p>
+            <div class="slide-buttons">
+              <a href="about.html#dogs" class="btn btn-primary">
+                <i class="fas fa-dog"></i> Meet Them All
+              </a>
+              <a href="gallery.html" class="btn btn-outline">
+                <i class="fas fa-camera"></i> See Their Photos
+              </a>
+            </div>
+          </div>
+          <div
+            class="slide-background"
+            style="
+              background: linear-gradient(135deg, #155e75 0%, #0ea5e9 100%);
+            "
+          >
+            <img
+              src="dog2.jpg"
+              alt="Happy Golden Retriever"
+              style="height: 100%; width: 100%; object-fit: cover"
+            />
+          </div>
+        </div>
+
+        <!-- Slide 3 -->
+        <div class="slider-slide">
+          <div class="slide-overlay"></div>
+          <div class="slide-content">
+            <h1 class="slide-title">Unconditional Love ❤️</h1>
+            <p class="slide-subtitle">
+              They don't speak, but they understand everything
+            </p>
+            <p class="slide-description">
+              Pure love without judgment, conditions, or expectations
+            </p>
+            <div class="slide-buttons">
+              <a href="gallery.html" class="btn btn-primary">
+                <i class="fas fa-heart"></i> See Love in Action
+              </a>
+              <a href="contact.html" class="btn btn-outline">
+                <i class="fas fa-share-alt"></i> Share Your Story
+              </a>
+            </div>
+          </div>
+          <div
+            class="slide-background"
+            style="
+              background: linear-gradient(135deg, #8b4513 0%, #d2691e 100%);
+            "
+          >
+            <img
+              src="dog3.jpg"
+              alt="Happy Golden Retriever"
+              style="height: 100%; width: 100%; object-fit: cover"
+            />
+          </div>
+        </div>
+
+        <!-- Slide 4 -->
+        <div class="slider-slide">
+          <div class="slide-overlay"></div>
+          <div class="slide-content">
+            <h1 class="slide-title">Join Our Community 🌍</h1>
+            <p class="slide-subtitle">
+              For dog lovers in Bangladesh & worldwide
+            </p>
+            <p class="slide-description">
+              Share stories, photos, and connect with fellow dog enthusiasts
+            </p>
+            <div class="slide-buttons">
+              <a href="contact.html" class="btn btn-primary">
+                <i class="fas fa-envelope"></i> Get In Touch
+              </a>
+              <a
+                href="https://instagram.com/yourusername"
+                class="btn btn-outline"
+                target="_blank"
+              >
+                <i class="fab fa-instagram"></i> Follow on Instagram
+              </a>
+            </div>
+          </div>
+          <div
+            class="slide-background"
+            style="
+              background: linear-gradient(135deg, #2e8b57 0%, #3cb371 100%);
+            "
+          >
+            <img
+              src="dog4.jpg"
+              alt="Happy Golden Retriever"
+              style="height: 100%; width: 100%; object-fit: cover"
+            />
+          </div>
+        </div>
+      </div>
+
+      <!-- Slider Progress Bar -->
+      <div class="slider-progress">
+        <div class="slider-progress-bar"></div>
+      </div>
+    </div>
+
+    <!-- Story Section -->
+    <section class="section story-section">
+      <div class="container">
+        <div class="section-header">
+          <h2 class="section-title">🌿 Our Story | আমাদের গল্প</h2>
+          <p class="section-subtitle">
+            A journey of love, chaos, and furry companions
+          </p>
+        </div>
+
+        <div class="story-content">
+          <div class="story-text">
+            <p>
+              আমি একজন Dogs Lover—মানে officially life-এ peace কম, কিন্তু
+              ভালোবাসা unlimited ❤️ আমার ৬টা কুকুর শুধু pet না, ওরা আমার family,
+              bodyguard, therapist, আর alarm system—সব একসাথে 😄
+            </p>
+            <p>
+              This website is a small window into my life with dogs. It's messy,
+              noisy, full of fur… but also full of unconditional love.
+            </p>
+          </div>
+
+          <div class="story-stats">
+            <div class="stat-item">
+              <div class="stat-number">6</div>
+              <div class="stat-label">Dogs</div>
+            </div>
+            <div class="stat-item">
+              <div class="stat-number">∞</div>
+              <div class="stat-label">Love</div>
+            </div>
+            <div class="stat-item">
+              <div class="stat-number">24/7</div>
+              <div class="stat-label">Happiness</div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Meet the Dogs Section -->
+    <section class="section dogs-section">
+      <div class="container">
+        <div class="section-header">
+          <h2 class="section-title">🐕 Meet My Dogs</h2>
+          <p class="section-subtitle">
+            Each one with a unique personality and a special place in my heart
+          </p>
+        </div>
+
+        <div class="dogs-grid">
+          <!-- Dog 1 -->
+          <div class="dog-card">
+            <div class="dog-image">
+              <div
+                style="
+                  height: 200px;
+                  display: flex;
+                  align-items: center;
+                  justify-content: center;
+                  background-color: #f0f0f0;
+                "
+              >
+                <img
+                  src="dog1.jpg"
+                  alt="Roky the dog"
+                  style="height: 246px; width: 367px; object-fit: cover"
+                />
+              </div>
+            </div>
+            <div class="dog-info">
+              <h3 class="dog-name">Roky</h3>
+              <p class="dog-description">
+                Serious look, soft heart 🛡️ House protector by duty, cuddle
+                lover by nature.
+              </p>
+              <div class="dog-tags">
+                <span class="dog-tag">Protective</span>
+                <span class="dog-tag">Loyal</span>
+                <span class="dog-tag">Calm</span>
+              </div>
+            </div>
+          </div>
+
+          <!-- Dog 2 -->
+          <div class="dog-card">
+            <div class="dog-image">
+              <img
+                src="dog2.jpg"
+                alt="Simy the dog"
+                style="height: 246px; width: 367px; object-fit: cover"
+              />
+            </div>
+            <div class="dog-info">
+              <h3 class="dog-name">Simy</h3>
+              <p class="dog-description">
+                Drama queen 👑 Attention না পেলে offended হয়ে যায় 😆
+              </p>
+              <div class="dog-tags">
+                <span class="dog-tag">Dramatic</span>
+                <span class="dog-tag">Affectionate</span>
+                <span class="dog-tag">Playful</span>
+              </div>
+            </div>
+          </div>
+
+          <!-- Dog 3 -->
+          <div class="dog-card">
+            <div class="dog-image">
+              <img
+                src="dog3.jpg"
+                alt="Mily the dog"
+                style="height: 246px; width: 367px; object-fit: cover"
+              />
+            </div>
+            <div class="dog-info">
+              <h3 class="dog-name">Mily</h3>
+              <p class="dog-description">
+                Non-stop energy ⚡ Runs first, thinks later.
+              </p>
+              <div class="dog-tags">
+                <span class="dog-tag">Energetic</span>
+                <span class="dog-tag">Active</span>
+                <span class="dog-tag">Fun-loving</span>
+              </div>
+            </div>
+          </div>
+
+          <!-- Dog 4 -->
+          <div class="dog-card">
+            <div class="dog-image">
+              <img
+                src="dog4.jpg"
+                alt="Nila the dog"
+                style="height: 246px; width: 367px; object-fit: cover"
+              />
+            </div>
+            <div class="dog-info">
+              <h3 class="dog-name">Nila</h3>
+              <p class="dog-description">
+                Calm soul 💙 Looks at you like she understands life.
+              </p>
+              <div class="dog-tags">
+                <span class="dog-tag">Wise</span>
+                <span class="dog-tag">Calm</span>
+                <span class="dog-tag">Gentle</span>
+              </div>
+            </div>
+          </div>
+
+          <!-- Dog 5 -->
+          <div class="dog-card">
+            <div class="dog-image">
+              <img
+                src="dog5.jpg"
+                alt="Mila the dog"
+                style="height: 246px; width: 367px; object-fit: cover"
+              />
+            </div>
+            <div class="dog-info">
+              <h3 class="dog-name">Mila</h3>
+              <p class="dog-description">
+                Curious explorer ✨ Everything is interesting, especially food.
+              </p>
+              <div class="dog-tags">
+                <span class="dog-tag">Curious</span>
+                <span class="dog-tag">Foodie</span>
+                <span class="dog-tag">Adventurous</span>
+              </div>
+            </div>
+          </div>
+
+          <!-- Dog 6 -->
+          <div class="dog-card">
+            <div class="dog-image">
+              <img
+                src="dog6.jpg"
+                alt="Laly the dog"
+                style="height: 246px; width: 367px; object-fit: cover"
+              />
+            </div>
+            <div class="dog-info">
+              <h3 class="dog-name">Laly</h3>
+              <p class="dog-description">
+                Small body, big attitude ❤️ Cute face, bossy mind 😄
+              </p>
+              <div class="dog-tags">
+                <span class="dog-tag">Bossy</span>
+                <span class="dog-tag">Cute</span>
+                <span class="dog-tag">Confident</span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Why Love Section -->
+    <section class="section love-section">
+      <div class="container">
+        <div class="love-content">
+          <div class="love-icon">
+            <i class="fas fa-heart"></i>
+          </div>
+          <h2 class="section-title">❤️ Why I Love Them</h2>
+          <p class="love-text">
+            Dogs don't care about money, language, or background. They care
+            about who comes home and who loves them.
+          </p>
+          <p class="love-text">
+            ওরা কথা বলতে পারে না, কিন্তু চোখ দিয়ে এমন কথা বলে—যা মানুষও পারে না
+            🐾❤️
+          </p>
+        </div>
+      </div>
+    </section>
+    <footer class="footer">
+      <div class="container">
+        <!-- Main Footer Content -->
+        <div class="footer-main">
+          <!-- Brand Section -->
+          <div class="footer-brand-section">
+            <div class="brand-logo">
+              <div class="logo-animated">
+                <div class="logo-circle">
+                  <i class="fas fa-paw logo-icon"></i>
+                  <div class="logo-ring-1"></div>
+                  <div class="logo-ring-2"></div>
+                </div>
+                <div class="logo-text">
+                  <h2>Dogs <span class="logo-highlight">Lover</span></h2>
+                  <p class="logo-tagline">Where every paw has a story</p>
+                </div>
+              </div>
+            </div>
+
+            <div class="brand-mission">
+              <p class="mission-text">
+                <i class="fas fa-quote-left"></i>
+                Creating a world where every dog is loved, every tail wags, and
+                every bark tells a story of happiness.
+                <i class="fas fa-quote-right"></i>
+              </p>
+            </div>
+
+            <div class="brand-stats">
+              <div class="stats-grid">
+                <div class="stat-item">
+                  <div class="stat-icon">
+                    <i class="fas fa-dog"></i>
+                  </div>
+                  <div class="stat-content">
+                    <span class="stat-number">6</span>
+                    <span class="stat-label">Furry Friends</span>
+                  </div>
+                </div>
+                <div class="stat-item">
+                  <div class="stat-icon">
+                    <i class="fas fa-heart"></i>
+                  </div>
+                  <div class="stat-content">
+                    <span class="stat-number">∞</span>
+                    <span class="stat-label">Love Shared</span>
+                  </div>
+                </div>
+                <div class="stat-item">
+                  <div class="stat-icon">
+                    <i class="fas fa-camera"></i>
+                  </div>
+                  <div class="stat-content">
+                    <span class="stat-number">1000+</span>
+                    <span class="stat-label">Memories</span>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Quick Links Section -->
+          <div class="footer-links-section">
+            <h3 class="section-title">
+              <span class="title-icon">
+                <i class="fas fa-link"></i>
+              </span>
+              Quick Navigation
+            </h3>
+
+            <div class="links-grid">
+              <div class="link-column">
+                <h4 class="column-title">Pages</h4>
+                <ul class="link-list">
+                  <li>
+                    <a href="index.html" class="footer-link">
+                      <i class="fas fa-home link-bullet"></i>
+                      Home
+                      <span class="link-badge">Featured</span>
+                    </a>
+                  </li>
+                  <li>
+                    <a href="about.html" class="footer-link">
+                      <i class="fas fa-users link-bullet"></i>
+                      About Us
+                      <span class="link-badge">Our Story</span>
+                    </a>
+                  </li>
+                  <li>
+                    <a href="gallery.html" class="footer-link">
+                      <i class="fas fa-images link-bullet"></i>
+                      Gallery
+                      <span class="link-badge">Photos</span>
+                    </a>
+                  </li>
+                  <li>
+                    <a href="contact.html" class="footer-link">
+                      <i class="fas fa-envelope link-bullet"></i>
+                      Contact
+                      <span class="link-badge">Connect</span>
+                    </a>
+                  </li>
+                </ul>
+              </div>
+
+              <div class="link-column">
+                <h4 class="column-title">Resources</h4>
+                <ul class="link-list">
+                  <li>
+                    <a href="#blog" class="footer-link">
+                      <i class="fas fa-blog link-bullet"></i>
+                      Dog Blog
+                      <span class="link-badge">Tips</span>
+                    </a>
+                  </li>
+                  <li>
+                    <a href="#stories" class="footer-link">
+                      <i class="fas fa-book link-bullet"></i>
+                      Stories
+                      <span class="link-badge">Adventures</span>
+                    </a>
+                  </li>
+                  <li>
+                    <a href="#tips" class="footer-link">
+                      <i class="fas fa-lightbulb link-bullet"></i>
+                      Care Tips
+                      <span class="link-badge">Guide</span>
+                    </a>
+                  </li>
+                  <li>
+                    <a href="#faq" class="footer-link">
+                      <i class="fas fa-question-circle link-bullet"></i>
+                      FAQ
+                      <span class="link-badge">Help</span>
+                    </a>
+                  </li>
+                </ul>
+              </div>
+            </div>
+          </div>
+
+          <!-- Connect Section -->
+          <div class="footer-connect-section">
+            <h3 class="section-title">
+              <span class="title-icon">
+                <i class="fas fa-hashtag"></i>
+              </span>
+              Stay Connected
+            </h3>
+
+            <!-- Newsletter -->
+            <div class="newsletter-modern">
+              <div class="newsletter-header">
+                <i class="fas fa-paper-plane newsletter-icon"></i>
+                <div class="newsletter-title">
+                  <h4>Get Dog Updates</h4>
+                  <p>Weekly stories, photos & tips</p>
+                </div>
+              </div>
+
+              <form class="newsletter-form-modern">
+                <div class="form-group">
+                  <div class="input-with-icon">
+                    <i class="fas fa-envelope"></i>
+                    <input
+                      type="email"
+                      placeholder="your.email@example.com"
+                      required
+                    />
+                  </div>
+                  <button type="submit" class="subscribe-btn">
+                    <span class="btn-text">Subscribe</span>
+                    <i class="fas fa-arrow-right"></i>
+                  </button>
+                </div>
+                <div class="form-agreement">
+                  <label class="checkbox-label">
+                    <input type="checkbox" required />
+                    <span class="checkmark"></span>
+                    I agree to receive updates
+                  </label>
+                </div>
+              </form>
+            </div>
+
+            <!-- Social Media -->
+            <div class="social-modern">
+              <h4 class="social-title">Follow Our Journey</h4>
+              <div class="social-platforms">
+                <a
+                  href="https://instagram.com/yourusername"
+                  class="social-platform instagram"
+                  target="_blank"
+                >
+                  <div class="platform-icon">
+                    <i class="fab fa-instagram"></i>
+                  </div>
+                  <div class="platform-info">
+                    <span class="platform-name">Instagram</span>
+                    <span class="platform-followers">2.5K followers</span>
+                  </div>
+                  <i class="fas fa-external-link-alt platform-link"></i>
+                </a>
+
+                <a
+                  href="https://wa.me/8801XXXXXXXXX"
+                  class="social-platform whatsapp"
+                  target="_blank"
+                >
+                  <div class="platform-icon">
+                    <i class="fab fa-whatsapp"></i>
+                  </div>
+                  <div class="platform-info">
+                    <span class="platform-name">WhatsApp</span>
+                    <span class="platform-followers">Direct chat</span>
+                  </div>
+                  <i class="fas fa-external-link-alt platform-link"></i>
+                </a>
+
+                <a href="#" class="social-platform facebook">
+                  <div class="platform-icon">
+                    <i class="fab fa-facebook-f"></i>
+                  </div>
+                  <div class="platform-info">
+                    <span class="platform-name">Facebook</span>
+                    <span class="platform-followers">Community</span>
+                  </div>
+                  <i class="fas fa-external-link-alt platform-link"></i>
+                </a>
+
+                <a href="#" class="social-platform youtube">
+                  <div class="platform-icon">
+                    <i class="fab fa-youtube"></i>
+                  </div>
+                  <div class="platform-info">
+                    <span class="platform-name">YouTube</span>
+                    <span class="platform-followers">Videos</span>
+                  </div>
+                  <i class="fas fa-external-link-alt platform-link"></i>
+                </a>
+              </div>
+            </div>
+
+            <!-- Contact Info -->
+            <div class="contact-modern">
+              <div class="contact-item">
+                <i class="fas fa-map-marker-alt contact-icon"></i>
+                <div class="contact-details">
+                  <span class="contact-label">Location</span>
+                  <span class="contact-value">Dhaka, Bangladesh</span>
+                </div>
+              </div>
+              <div class="contact-item">
+                <i class="fas fa-paw contact-icon"></i>
+                <div class="contact-details">
+                  <span class="contact-label">Status</span>
+                  <span class="contact-value">Always playing with dogs</span>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Footer Divider -->
+        <div class="footer-divider-modern">
+          <div class="divider-line">
+            <div class="divider-dot"></div>
+            <div class="divider-dot"></div>
+            <div class="divider-dot"></div>
+          </div>
+        </div>
+
+        <!-- Footer Bottom -->
+        <div class="footer-bottom-modern">
+          <div class="copyright-section">
+            <div class="copyright-content">
+              <div class="copyright-text">
+                <p>
+                  © <span id="currentYear">2026</span> Dogs Lover. All rights
+                  reserved.
+                  <span class="copyright-separator">|</span>
+                  <span id="currentDateTime"></span>
+                </p>
+                <p class="copyright-message">
+                  Made with
+                  <i class="fas fa-heart heart-beat"></i>
+                  and
+                  <i class="fas fa-paw paw-spin"></i>
+                  in Bangladesh
+                </p>
+              </div>
+
+              <div class="language-selector">
+                <button class="language-btn">
+                  <i class="fas fa-globe"></i>
+                  <span>English</span>
+                  <i class="fas fa-chevron-down"></i>
+                </button>
+              </div>
+            </div>
+          </div>
+
+          <div class="legal-section">
+            <div class="legal-links-modern">
+              <a href="#privacy" class="legal-link">
+                <i class="fas fa-shield-alt"></i>
+                Privacy Policy
+              </a>
+              <a href="#terms" class="legal-link">
+                <i class="fas fa-file-contract"></i>
+                Terms of Service
+              </a>
+              <a href="#cookies" class="legal-link">
+                <i class="fas fa-cookie"></i>
+                Cookies
+              </a>
+              <a href="#accessibility" class="legal-link">
+                <i class="fas fa-universal-access"></i>
+                Accessibility
+              </a>
+            </div>
+
+            <div class="back-to-top-modern" id="backToTop">
+              <div class="back-top-content">
+                <i class="fas fa-chevron-up"></i>
+                <span class="back-text">Back to Top</span>
+              </div>
+              <div class="back-progress"></div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Animated Background Elements -->
+      <div class="footer-background">
+        <div class="bg-paw paw-1">
+          <i class="fas fa-paw"></i>
+        </div>
+        <div class="bg-paw paw-2">
+          <i class="fas fa-paw"></i>
+        </div>
+        <div class="bg-paw paw-3">
+          <i class="fas fa-paw"></i>
+        </div>
+        <div class="bg-bone">
+          <i class="fas fa-bone"></i>
+        </div>
+      </div>
+    </footer>
+
+    <script src="script.js"></script>
+  </body>
+</html>
